@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -60,6 +60,19 @@
             padding: 0 24px;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+        }
+
+        /* iOS Glass Header */
         .header {
             background: rgba(255, 255, 255, 0.72);
             backdrop-filter: blur(25px);
@@ -83,6 +96,18 @@
             flex-wrap: wrap;
             gap: 16px;
         }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
         .logo {
             font-size: 1.2rem;
             font-weight: 600;
@@ -106,6 +131,14 @@
             flex-wrap: wrap;
             align-items: center;
         }
+
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+        }
+
         .nav-tab {
             background: transparent;
             border: none;
@@ -136,6 +169,14 @@
             gap: 4px;
             margin-left: 12px;
         }
+
+        @media (max-width: 768px) {
+            .lang-switcher {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+
         .lang-btn {
             background: rgba(0, 0, 0, 0.05);
             border: none;
@@ -177,6 +218,18 @@
             padding: 48px 0;
         }
 
+        @media (max-width: 768px) {
+            section {
+                padding: 32px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 24px 0;
+            }
+        }
+
         .section-title {
             font-size: 1.6rem;
             font-weight: 600;
@@ -202,15 +255,44 @@
             to { width: 50px; }
         }
 
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+        }
+
         .hero {
             padding: 56px 0 40px;
         }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 32px 0 24px;
+            }
+        }
+
         .hero-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
             align-items: flex-start;
         }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                flex-direction: column;
+                gap: 28px;
+            }
+        }
+
         .hero-main {
             flex: 2;
         }
@@ -225,6 +307,19 @@
             margin-bottom: 8px;
             animation: fadeInUp 0.5s ease;
         }
+
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name {
+                font-size: 1.8rem;
+            }
+        }
+
         .hero-title {
             font-size: 1.2rem;
             color: #6c6c70;
@@ -232,6 +327,13 @@
             font-weight: 500;
             animation: fadeInUp 0.5s ease 0.05s both;
         }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1rem;
+            }
+        }
+
         .hero-meta {
             display: flex;
             flex-wrap: wrap;
@@ -241,6 +343,14 @@
             color: #6c6c70;
             animation: fadeInUp 0.5s ease 0.1s both;
         }
+
+        @media (max-width: 480px) {
+            .hero-meta {
+                gap: 12px;
+                font-size: 0.75rem;
+            }
+        }
+
         .hero-meta-item {
             display: flex;
             align-items: center;
@@ -254,6 +364,13 @@
             line-height: 1.5;
             animation: fadeInUp 0.5s ease 0.15s both;
         }
+
+        @media (max-width: 768px) {
+            .hero-desc {
+                font-size: 0.9rem;
+            }
+        }
+
         .availability-badge {
             display: inline-flex;
             align-items: center;
@@ -268,12 +385,31 @@
             color: #007aff;
             animation: fadeInUp 0.5s ease 0.05s both;
         }
+
+        @media (max-width: 480px) {
+            .availability-badge {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+        }
+
         .btn-group {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
             animation: fadeInUp 0.5s ease 0.2s both;
         }
+
+        @media (max-width: 480px) {
+            .btn-group {
+                gap: 8px;
+            }
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -335,6 +471,13 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
             animation: slideInRight 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
         }
+
+        @media (max-width: 768px) {
+            .hero-sidebar {
+                padding: 20px;
+            }
+        }
+
         @keyframes slideInRight {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
@@ -354,6 +497,15 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
+
+        @media (max-width: 480px) {
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+        }
+
         .profile-photo:hover {
             transform: scale(1.02);
         }
@@ -364,6 +516,15 @@
             margin-bottom: 16px;
             font-size: 0.85rem;
         }
+
+        @media (max-width: 480px) {
+            .contact-row {
+                font-size: 0.75rem;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+        }
+
         .contact-row a {
             color: #1c1c1e;
             text-decoration: none;
@@ -389,6 +550,20 @@
             margin-top: 32px;
             animation: fadeInUp 0.5s ease 0.25s both;
         }
+
+        @media (max-width: 480px) {
+            .stats-row {
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 8px 12px;
+                min-width: 80px;
+            }
+            .stat-number {
+                font-size: 1.2rem;
+            }
+        }
+
         .stat-card {
             background: rgba(255, 255, 255, 0.64);
             backdrop-filter: blur(20px);
@@ -414,6 +589,14 @@
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 24px;
         }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
         .exp-card {
             background: rgba(255, 255, 255, 0.64);
             backdrop-filter: blur(25px);
@@ -428,6 +611,19 @@
             transform: translateY(20px);
             margin-bottom: 24px;
         }
+
+        @media (max-width: 480px) {
+            .exp-card {
+                padding: 20px;
+            }
+            .exp-title {
+                font-size: 1rem;
+            }
+            .exp-content {
+                font-size: 0.85rem;
+            }
+        }
+
         .exp-card:last-child { margin-bottom: 0; }
         @keyframes cardReveal {
             to { opacity: 1; transform: translateY(0); }
@@ -493,6 +689,16 @@
             transform: translateY(20px);
             margin-bottom: 24px;
         }
+
+        @media (max-width: 480px) {
+            .testimonial-card {
+                padding: 20px;
+            }
+            .testimonial-text {
+                font-size: 0.85rem;
+            }
+        }
+
         .testimonial-card:last-child { margin-bottom: 0; }
         .testimonial-card:hover {
             transform: translateY(-5px);
@@ -533,6 +739,30 @@
             border-radius: 24px;
             overflow: hidden;
         }
+
+        @media (max-width: 768px) {
+            .skills-table th, .skills-table td {
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-table th, .skills-table td {
+                display: block;
+                width: 100%;
+                padding: 10px 12px;
+            }
+            .skills-table th {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .skills-table td {
+                padding-top: 0;
+                padding-bottom: 16px;
+            }
+        }
+
         .skills-table th, .skills-table td {
             padding: 16px 20px;
             text-align: left;
@@ -558,6 +788,17 @@
             gap: 12px;
             margin-top: 24px;
         }
+
+        @media (max-width: 480px) {
+            .tools-grid {
+                gap: 8px;
+            }
+            .tool-tag {
+                padding: 5px 12px;
+                font-size: 0.7rem;
+            }
+        }
+
         .tool-tag {
             background: rgba(0, 0, 0, 0.04);
             padding: 8px 18px;
@@ -579,6 +820,21 @@
             margin-top: 24px;
             border: 0.5px solid rgba(255, 255, 255, 0.6);
         }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 20px;
+            }
+            .form-group input, .form-group textarea {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+            .submit-btn {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -640,6 +896,17 @@
             margin-top: 24px;
             flex-wrap: wrap;
         }
+
+        @media (max-width: 480px) {
+            .share-buttons {
+                gap: 8px;
+            }
+            .share-btn {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+        }
+
         .share-btn {
             display: inline-flex;
             align-items: center;
@@ -681,6 +948,13 @@
             margin-right: 4px;
         }
 
+        @media (max-width: 480px) {
+            .quote {
+                font-size: 0.9rem;
+                padding: 16px;
+            }
+        }
+
         .footer {
             background: rgba(255, 255, 255, 0.48);
             backdrop-filter: blur(20px);
@@ -693,20 +967,16 @@
             animation: fadeInUp 0.5s ease;
         }
 
+        @media (max-width: 480px) {
+            .footer {
+                padding: 20px 0;
+                font-size: 0.65rem;
+            }
+        }
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 800px) {
-            .hero-name { font-size: 2.2rem; }
-            .section-title { font-size: 1.4rem; }
-            .container { padding: 0 18px; }
-            .hero-grid { flex-direction: column; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .skills-table th, .skills-table td { display: block; width: 100%; }
-            .skills-table th { border-bottom: none; padding-bottom: 8px; }
-            .skills-table td { padding-top: 0; }
         }
     </style>
 </head>
@@ -916,7 +1186,7 @@
                 <tr><th data-key="skill3_cat">⚙️ Implementation & Support</th><td data-key="skill3_desc">System Configuration, UAT, End-User Training, Tech Docs</td></tr>
                 <tr><th data-key="skill4_cat">🔄 Integration Analysis</th><td data-key="skill4_desc">ERP, HRIS, EDI (Kontur Diadok)</td></tr>
                 <tr><th data-key="skill5_cat">🛠️ Tools</th><td data-key="skill5_desc">Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform</td></tr>
-            </table>
+             </table>
             <div style="margin-top: 32px;">
                 <div class="section-title" style="font-size: 1.3rem;" data-key="tools_title">🛠️ Tech stack</div>
                 <div class="tools-grid">
