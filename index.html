@@ -42,6 +42,9 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script>
     
+    <!-- QR Code Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator-1.4.4/qrcode.min.js"></script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -278,9 +281,9 @@
                 <div class="contact-row">🧵 <a href="https://www.threads.com/@olga.development_" target="_blank" rel="noopener noreferrer">Threads</a></div>
                 <div class="contact-row">📘 <a href="https://www.facebook.com/olga.development" target="_blank" rel="noopener noreferrer">Facebook</a></div>
                 
-                <!-- QR КОД -->
+                <!-- QR КОД (теперь рабочий) -->
                 <div class="qr-container">
-                    <canvas id="qrCanvas" class="qr-code" width="150" height="150"></canvas>
+                    <div id="qrCanvas" class="qr-code"></div>
                     <div class="qr-label" data-key="qr_label">📱 Scan QR to visit my website</div>
                 </div>
                 
@@ -395,208 +398,89 @@
 </div>
 
 <script>
-    // Генерация QR-кода на чистом JavaScript без внешних библиотек
+    // Генерация QR-кода с использованием библиотеки qrcode-generator (рабочая версия)
     (function() {
-        // Простой генератор QR-кода (альтернатива)
-        function generateSimpleQRCode(canvasId, text, size) {
-            const canvas = document.getElementById(canvasId);
-            if (!canvas) return;
-            
-            const ctx = canvas.getContext('2d');
-            const cellSize = size / 25;
-            const margin = cellSize * 2;
-            const qrSize = size - margin * 2;
-            
-            // Используем простую строку как демо-QR
-            canvas.width = size;
-            canvas.height = size;
-            
-            // Белый фон
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, size, size);
-            
-            // Рисуем рамку QR-кода
-            ctx.fillStyle = '#1a1a2e';
-            
-            // Верхний левый квадрат
-            ctx.fillRect(margin, margin, qrSize / 4, qrSize / 4);
-            ctx.fillRect(margin, margin + qrSize / 2, qrSize / 4, qrSize / 4);
-            ctx.fillRect(margin + qrSize / 2, margin, qrSize / 4, qrSize / 4);
-            
-            // Добавляем узор внутри
-            ctx.fillStyle = '#1a1a2e';
-            for (let i = 0; i < 20; i++) {
-                let x = margin + Math.random() * qrSize;
-                let y = margin + Math.random() * qrSize;
-                ctx.fillRect(x, y, cellSize / 1.5, cellSize / 1.5);
-            }
-            
-            // В центре размещаем текст URL
-            ctx.fillStyle = '#1a1a2e';
-            ctx.font = `${cellSize * 1.2}px monospace`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            
-            // Короткий текст для отображения
-            let shortText = text;
-            if (text.length > 20) {
-                shortText = text.replace('https://', '').replace('http://', '');
-                if (shortText.length > 25) shortText = shortText.substring(0, 22) + '...';
-            }
-            ctx.fillText(shortText, size / 2, size / 2);
-        }
-        
         function generateQRCode() {
+            const qrContainer = document.getElementById('qrCanvas');
+            if (!qrContainer) return;
+            
+            // Очищаем контейнер
+            qrContainer.innerHTML = '';
+            
+            // Получаем текущий URL сайта (без hash)
             const currentUrl = window.location.href.split('#')[0];
-            const canvas = document.getElementById('qrCanvas');
-            if (!canvas) return;
             
-            const size = 150;
-            canvas.width = size;
-            canvas.height = size;
+            // Создаём QR-код с версией 10 (размер 57x57 модулей)
+            // Версия 10 позволяет закодировать до 185 символов в режиме алфавитно-цифровом
+            const qr = qrcode(10, 'M');
+            qr.addData(currentUrl);
+            qr.make();
             
-            const ctx = canvas.getContext('2d');
-            const cellSize = size / 29;
-            const margin = cellSize * 2;
-            const qrSize = size - margin * 2;
+            // Создаём HTML-элемент
+            const cellSize = 3; // пикселей на модуль
+            const padding = 8; // отступ в пикселях
+            const qrSize = qr.getModuleCount() * cellSize;
+            const totalSize = qrSize + padding * 2;
             
-            // Простая псевдо-генерация QR-кода с паттерном
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, size, size);
+            // Создаём canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = totalSize;
+            canvas.height = totalSize;
+            canvas.style.width = '150px';
+            canvas.style.height = '150px';
             
-            // Функция для рисования паттерна
-            function drawPattern(x, y, w, h) {
-                ctx.fillStyle = '#1a1a2e';
-                ctx.fillRect(x, y, w, h);
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(x + w/4, y + w/4, w/2, w/2);
-                ctx.fillStyle = '#1a1a2e';
-            }
-            
-            // Три угловых маркера
-            drawPattern(margin, margin, cellSize * 7, cellSize * 7);
-            drawPattern(size - margin - cellSize * 7, margin, cellSize * 7, cellSize * 7);
-            drawPattern(margin, size - margin - cellSize * 7, cellSize * 7, cellSize * 7);
-            
-            // Генерация случайных данных (имитация QR-кода)
-            const dataCount = 200;
-            for (let i = 0; i < dataCount; i++) {
-                let x = margin + Math.floor(Math.random() * qrSize);
-                let y = margin + Math.floor(Math.random() * qrSize);
-                // Пропускаем зону угловых маркеров
-                if ((x < margin + cellSize * 7 && y < margin + cellSize * 7) ||
-                    (x > size - margin - cellSize * 7 && y < margin + cellSize * 7) ||
-                    (x < margin + cellSize * 7 && y > size - margin - cellSize * 7)) {
-                    continue;
-                }
-                ctx.fillStyle = '#1a1a2e';
-                ctx.fillRect(x, y, cellSize, cellSize);
-            }
-            
-            // Ссылка на сайт текстом
-            ctx.fillStyle = '#1a1a2e';
-            ctx.font = `${cellSize * 1.1}px -apple-system`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            let displayUrl = currentUrl.replace('https://', '').replace('http://', '');
-            if (displayUrl.length > 22) displayUrl = displayUrl.substring(0, 19) + '...';
-            ctx.fillText(displayUrl, size / 2, size / 2 + cellSize);
-            
-            // Дополнительные точки для плотности
-            ctx.fillStyle = '#1a1a2e';
-            for (let i = 0; i < 300; i++) {
-                let x = margin + Math.floor(Math.random() * qrSize);
-                let y = margin + Math.floor(Math.random() * qrSize);
-                if (ctx.getImageData(x, y, 1, 1).data[0] === 255) {
-                    ctx.fillRect(x, y, cellSize * 0.6, cellSize * 0.6);
-                }
-            }
-        }
-        
-        function generateSimpleQR() {
-            const url = window.location.href.split('#')[0];
-            const canvas = document.getElementById('qrCanvas');
-            if (!canvas) return;
-            
-            const size = 150;
-            canvas.width = size;
-            canvas.height = size;
             const ctx = canvas.getContext('2d');
             
             // Белый фон
             ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, size, size);
+            ctx.fillRect(0, 0, totalSize, totalSize);
             
-            // Рисуем стилизованный QR-код с логотипом
-            const blockSize = size / 33;
-            const margin = blockSize * 3;
-            
-            // Угловые маркеры
-            ctx.fillStyle = '#1a1a2e';
-            // Левый верхний
-            ctx.fillRect(margin, margin, blockSize * 7, blockSize * 7);
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(margin + blockSize, margin + blockSize, blockSize * 5, blockSize * 5);
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(margin + blockSize * 2, margin + blockSize * 2, blockSize * 3, blockSize * 3);
-            
-            // Правый верхний
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(size - margin - blockSize * 7, margin, blockSize * 7, blockSize * 7);
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(size - margin - blockSize * 6, margin + blockSize, blockSize * 5, blockSize * 5);
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(size - margin - blockSize * 5, margin + blockSize * 2, blockSize * 3, blockSize * 3);
-            
-            // Левый нижний
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(margin, size - margin - blockSize * 7, blockSize * 7, blockSize * 7);
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(margin + blockSize, size - margin - blockSize * 6, blockSize * 5, blockSize * 5);
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(margin + blockSize * 2, size - margin - blockSize * 5, blockSize * 3, blockSize * 3);
-            
-            // Генерация данных (точки)
-            ctx.fillStyle = '#1a1a2e';
-            const positions = [
-                [6,8],[8,6],[10,12],[12,10],[14,6],[16,14],[18,8],[20,16],
-                [7,15],[9,18],[11,7],[13,19],[15,9],[17,11],[19,13],[21,15],
-                [8,22],[10,24],[12,20],[14,26],[16,22],[18,24],[20,20],[22,22],
-                [24,8],[26,10],[22,12],[24,14],[26,16],[22,18],[24,20],[26,22],
-                [6,6],[8,8],[10,10],[12,12],[14,14],[16,16],[18,18],[20,20]
-            ];
-            
-            for (let i = 0; i < positions.length; i++) {
-                const x = margin + positions[i][0] * blockSize;
-                const y = margin + positions[i][1] * blockSize;
-                ctx.fillRect(x, y, blockSize, blockSize);
-            }
-            
-            for (let i = 0; i < 100; i++) {
-                const x = margin + Math.floor(Math.random() * (size - margin * 2));
-                const y = margin + Math.floor(Math.random() * (size - margin * 2));
-                if ((x < margin + blockSize * 7 && y < margin + blockSize * 7) ||
-                    (x > size - margin - blockSize * 7 && y < margin + blockSize * 7) ||
-                    (x < margin + blockSize * 7 && y > size - margin - blockSize * 7)) {
-                    continue;
+            // Рисуем QR-код
+            for (let row = 0; row < qr.getModuleCount(); row++) {
+                for (let col = 0; col < qr.getModuleCount(); col++) {
+                    const x = padding + col * cellSize;
+                    const y = padding + row * cellSize;
+                    const isDark = qr.isDark(row, col);
+                    if (isDark) {
+                        ctx.fillStyle = '#1a1a2e';
+                        ctx.fillRect(x, y, cellSize, cellSize);
+                    }
                 }
-                ctx.fillRect(x, y, blockSize, blockSize);
             }
             
-            // Центральный логотип
+            // Добавляем центральный логотип (инициалы)
+            const logoSize = 30;
+            const logoX = (totalSize - logoSize) / 2;
+            const logoY = (totalSize - logoSize) / 2;
             ctx.fillStyle = '#ffffff';
-            ctx.fillRect(size/2 - blockSize * 3, size/2 - blockSize * 3, blockSize * 6, blockSize * 6);
+            ctx.fillRect(logoX - 2, logoY - 2, logoSize + 4, logoSize + 4);
             ctx.fillStyle = '#1a1a2e';
-            ctx.font = `${blockSize * 2.5}px -apple-system`;
+            ctx.font = `bold ${logoSize - 8}px -apple-system`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('OB', size/2, size/2);
+            ctx.fillText('OB', totalSize / 2, totalSize / 2);
+            
+            // Вставляем canvas в контейнер
+            qrContainer.appendChild(canvas);
         }
         
-        // Запускаем генерацию после загрузки страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            generateSimpleQR();
-        });
+        // Запускаем после полной загрузки страницы
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', generateQRCode);
+        } else {
+            generateQRCode();
+        }
+        
+        // При изменении URL (смена языка не меняет URL, но перегенерация не нужна, так как URL тот же)
+        // Обновляем QR-код только если действительно изменился основной URL
+        let lastUrl = window.location.href.split('#')[0];
+        setInterval(function() {
+            const newUrl = window.location.href.split('#')[0];
+            if (newUrl !== lastUrl) {
+                lastUrl = newUrl;
+                generateQRCode();
+            }
+        }, 1000);
     })();
 
     const translations = {
