@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Olga Bochkareva | IT Business Analyst</title>
+    <title>Olga Bochkareva | IT Business Analyst | Chuyên gia phân tích kinh doanh</title>
     
-    <meta name="description" content="Olga Bochkareva - IT Business Analyst. 10+ years of experience. Helping companies transform chaotic paper processes into clear automated systems.">
-    <meta name="keywords" content="IT Business Analyst, business analyst, process automation, BPMN, digital nomad">
+    <meta name="description" content="Olga Bochkareva - IT Business Analyst with 10+ years of experience. Specializing in process automation, BPMN, requirements engineering. 200+ projects delivered.">
+    <meta name="keywords" content="IT Business Analyst, business analyst, process automation, BPMN, requirements engineering, digital nomad">
     <meta name="author" content="Olga Bochkareva">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://olga-bochkareva.com/">
     
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EOB%3C/text%3E%3C/svg%3E">
+    
     <meta property="og:title" content="Olga Bochkareva | IT Business Analyst">
-    <meta property="og:description" content="IT Business Analyst with 10+ years of experience. Pharmaceuticals, auto parts, aviation, metallurgy. 200+ projects.">
+    <meta property="og:description" content="IT Business Analyst with 10+ years of experience. Process automation expert. 200+ projects delivered.">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="en_US">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Olga Bochkareva | IT Business Analyst">
-    <meta name="twitter:description" content="IT Business Analyst with 10+ years of experience. 200+ projects. Business process automation.">
     
     <script type="application/ld+json">
     {
@@ -29,7 +30,14 @@
       "url": "https://olga-bochkareva.com",
       "email": "ollie_dev@icloud.com",
       "telephone": "+79630339669",
-      "knowsLanguage": ["English", "Russian"]
+      "sameAs": [
+        "https://linkedin.com/in/olga-bochkareva",
+        "https://t.me/olga_bochkareva",
+        "https://www.instagram.com/olga.development_",
+        "https://www.threads.com/@olga.development_",
+        "https://www.facebook.com/olga.development"
+      ],
+      "knowsLanguage": ["English", "Vietnamese"]
     }
     </script>
     
@@ -42,12 +50,7 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', system-ui, 'Segoe UI', Roboto, sans-serif;
             background: #f5f7fa;
@@ -55,18 +58,20 @@
             line-height: 1.5;
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        :root {
+            --primary-dark: #1a1a2e;
+            --primary-blue: #3b82f6;
+            --text-dark: #1a1a2e;
+            --text-light: #4a5568;
+            --text-muted: #64748b;
+            --border-light: #eef2f6;
+            --bg-card: white;
+            --transition: all 0.3s ease;
         }
-
-        /* Header */
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -74,518 +79,109 @@
             padding: 16px 0;
             animation: slideDown 0.4s ease;
         }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .logo span {
-            font-weight: 400;
-            font-size: 0.75rem;
-            color: #666;
-        }
-        .nav {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.2rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-dark), #16213e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { font-weight: 400; font-size: 0.75rem; color: #666; }
+        .nav { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
         .nav-tab {
-            background: transparent;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 100px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            font-family: inherit;
-            color: #1a1a2e;
-            transition: all 0.25s ease;
+            background: transparent; border: none; padding: 8px 20px; border-radius: 100px;
+            cursor: pointer; font-size: 0.85rem; font-weight: 500; font-family: inherit;
+            color: var(--text-dark); transition: var(--transition); min-height: 42px;
         }
-        .nav-tab:hover {
-            background: rgba(0, 0, 0, 0.05);
+        .nav-tab:hover { background: rgba(0, 0, 0, 0.05); transform: translateY(-1px); }
+        .nav-tab.active { background: var(--primary-dark); color: white; }
+        .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
+        .lang-btn {
+            background: rgba(0, 0, 0, 0.05); border: none; padding: 6px 12px; border-radius: 100px;
+            cursor: pointer; font-size: 0.7rem; font-weight: 500; transition: all 0.2s ease; color: #1c1c1e;
         }
-        .nav-tab.active {
-            background: #1a1a2e;
-            color: white;
-        }
+        .lang-btn:hover { background: rgba(0, 0, 0, 0.1); transform: scale(1.05); }
+        .lang-btn.active { background: var(--primary-dark); color: white; }
 
-        /* Pages */
-        .page {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-        .page.active-page {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        section {
-            padding: 64px 0;
-            border-bottom: 1px solid #eef2f6;
-        }
-        section:last-child {
-            border-bottom: none;
-        }
+        .page { display: none; animation: fadeIn 0.4s ease; }
+        .page.active-page { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        section { padding: 64px 0; border-bottom: 1px solid var(--border-light); }
+        section:last-child { border-bottom: none; }
         .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #1a1a2e;
-            letter-spacing: -0.02em;
-            position: relative;
-            display: inline-block;
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 40px; color: var(--text-dark);
+            letter-spacing: -0.02em; position: relative; display: inline-block;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #3b82f6;
-            border-radius: 3px;
-        }
+        .section-title::after { content: ''; position: absolute; bottom: -12px; left: 0; width: 60px; height: 3px; background: var(--primary-blue); border-radius: 3px; }
 
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 60px;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e8eef4 100%);
-        }
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 48px;
-            align-items: flex-start;
-        }
-        .hero-main {
-            flex: 2;
-        }
-        .hero-name {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #1a1a2e, #3b82f6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 12px;
-        }
-        .hero-title {
-            font-size: 1.3rem;
-            color: #4a5568;
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-bottom: 28px;
-            font-size: 0.9rem;
-            color: #4a5568;
-        }
-        .hero-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .hero-desc {
-            font-size: 1.05rem;
-            margin-bottom: 32px;
-            color: #2d3748;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        .availability-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(59, 130, 246, 0.1);
-            padding: 8px 18px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 28px;
-            color: #3b82f6;
-        }
-        .btn-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: #1a1a2e;
-            color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .btn-primary:hover {
-            background: #2d2d44;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        .btn-outline {
-            border: 1.5px solid #1a1a2e;
-            color: #1a1a2e;
-            background: transparent;
-        }
-        .btn-outline:hover {
-            background: #1a1a2e;
-            color: white;
-            transform: translateY(-2px);
-        }
+        .hero { padding: 80px 0 60px; background: linear-gradient(135deg, #f0f4f8 0%, #e8eef4 100%); }
+        .hero-grid { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
+        .hero-main { flex: 2; }
+        .hero-name { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; }
+        .hero-title { font-size: 1.3rem; color: var(--text-light); margin-bottom: 24px; font-weight: 500; }
+        .hero-meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 28px; font-size: 0.9rem; color: var(--text-light); }
+        .hero-meta-item { display: flex; align-items: center; gap: 8px; }
+        .hero-desc { font-size: 1.05rem; margin-bottom: 32px; color: #2d3748; max-width: 600px; line-height: 1.6; }
+        .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1); padding: 8px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 28px; color: var(--primary-blue); }
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: var(--transition); cursor: pointer; font-family: inherit; }
+        .btn-primary { background: var(--primary-dark); color: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+        .btn-primary:hover { background: #2d2d44; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
+        .btn-outline { border: 1.5px solid var(--primary-dark); color: var(--primary-dark); background: transparent; }
+        .btn-outline:hover { background: var(--primary-dark); color: white; transform: translateY(-2px); }
 
-        /* Hero Sidebar */
-        .hero-sidebar {
-            flex: 1;
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            border: 1px solid #eef2f6;
-        }
-        .profile-photo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #3b82f6, #1a1a2e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .contact-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 0.85rem;
-        }
-        .contact-row a {
-            color: #1a1a2e;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .contact-row a:hover {
-            color: #3b82f6;
-        }
-        .work-note {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 12px;
-            margin-top: 20px;
-            font-size: 0.75rem;
-            text-align: center;
-            color: #64748b;
-        }
+        .hero-sidebar { flex: 1; background: var(--bg-card); border-radius: 24px; padding: 28px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06); border: 1px solid var(--border-light); }
+        .profile-photo { width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+        .contact-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; }
+        .contact-row a { color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
+        .contact-row a:hover { color: var(--primary-blue); }
+        .work-note { background: #f8fafc; border-radius: 16px; padding: 12px; margin-top: 20px; font-size: 0.75rem; text-align: center; color: var(--text-muted); }
 
-        /* Stats */
-        .stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .stat-card {
-            background: white;
-            padding: 16px 24px;
-            border-radius: 20px;
-            text-align: center;
-            min-width: 110px;
-            border: 1px solid #eef2f6;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-        }
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: #3b82f6;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #1a1a2e;
-        }
+        .stats-row { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
+        .stat-card { background: var(--bg-card); padding: 16px 24px; border-radius: 20px; text-align: center; min-width: 110px; border: 1px solid var(--border-light); transition: var(--transition); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); }
+        .stat-card:hover { transform: translateY(-4px); border-color: var(--primary-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
+        .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); }
 
-        /* Cards */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 28px;
-        }
-        .exp-card, .testimonial-card {
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            transition: all 0.3s ease;
-            border: 1px solid #eef2f6;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-        }
-        .exp-card:hover, .testimonial-card:hover {
-            transform: translateY(-4px);
-            border-color: #3b82f6;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-        }
-        .exp-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-        .exp-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #1a1a2e;
-        }
-        .exp-date {
-            font-size: 0.75rem;
-            color: #64748b;
-        }
-        .exp-company {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #3b82f6;
-            margin-bottom: 16px;
-        }
-        .exp-content {
-            font-size: 0.95rem;
-            color: #2d3748;
-            line-height: 1.6;
-        }
-        .exp-result {
-            background: #f0f7ff;
-            padding: 12px 16px;
-            border-radius: 16px;
-            margin-top: 16px;
-        }
-        .exp-result strong {
-            color: #3b82f6;
-        }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 28px; }
+        .exp-card, .testimonial-card { background: var(--bg-card); border-radius: 24px; padding: 28px; transition: var(--transition); border: 1px solid var(--border-light); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); }
+        .exp-card:hover, .testimonial-card:hover { transform: translateY(-4px); border-color: var(--primary-blue); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
+        .exp-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .exp-title { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); }
+        .exp-date { font-size: 0.75rem; color: var(--text-muted); }
+        .exp-company { font-size: 0.85rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 16px; }
+        .exp-content { font-size: 0.95rem; color: #2d3748; line-height: 1.6; }
+        .exp-result { background: #f0f7ff; padding: 12px 16px; border-radius: 16px; margin-top: 16px; }
+        .exp-result strong { color: var(--primary-blue); }
 
-        .testimonial-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #eef2f6;
-        }
-        .testimonial-company {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1a1a2e;
-        }
-        .testimonial-signer {
-            font-size: 0.7rem;
-            color: #64748b;
-        }
-        .testimonial-text {
-            font-size: 0.92rem;
-            color: #2d3748;
-            line-height: 1.6;
-        }
+        .testimonial-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+        .testimonial-company { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+        .testimonial-signer { font-size: 0.7rem; color: var(--text-muted); }
+        .testimonial-text { font-size: 0.92rem; color: #2d3748; line-height: 1.6; }
 
-        /* Skills Table */
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #eef2f6;
-        }
-        .skills-table th, .skills-table td {
-            padding: 18px 24px;
-            text-align: left;
-            border-bottom: 1px solid #eef2f6;
-        }
-        .skills-table th {
-            font-weight: 600;
-            color: #1a1a2e;
-            background: #f8fafc;
-            width: 30%;
-        }
-        .skills-table td {
-            color: #2d3748;
-        }
-        .skills-table tr:last-child td,
-        .skills-table tr:last-child th {
-            border-bottom: none;
-        }
+        .skills-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-light); }
+        .skills-table th, .skills-table td { padding: 18px 24px; text-align: left; border-bottom: 1px solid var(--border-light); }
+        .skills-table th { font-weight: 600; color: var(--text-dark); background: #f8fafc; width: 30%; }
+        .skills-table tr:last-child td, .skills-table tr:last-child th { border-bottom: none; }
+        .tools-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+        .tool-tag { background: #f1f5f9; padding: 8px 18px; border-radius: 100px; font-size: 0.8rem; color: var(--text-dark); transition: var(--transition); }
+        .tool-tag:hover { background: var(--primary-blue); color: white; transform: translateY(-2px); }
 
-        .tools-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        .tool-tag {
-            background: #f1f5f9;
-            padding: 8px 18px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: #1a1a2e;
-            transition: all 0.2s ease;
-        }
-        .tool-tag:hover {
-            background: #3b82f6;
-            color: white;
-            transform: translateY(-2px);
-        }
+        .contact-form { background: #f8fafc; border-radius: 24px; padding: 32px; margin-top: 28px; border: 1px solid var(--border-light); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: var(--text-dark); }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px 16px; font-size: 0.9rem; font-family: inherit; background: white; border: 1px solid #e2e8f0; border-radius: 16px; transition: var(--transition); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .submit-btn { background: var(--primary-dark); color: white; border: none; padding: 14px 28px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition); width: 100%; }
+        .submit-btn:hover { background: #2d2d44; transform: scale(0.98); }
+        .form-status { margin-top: 16px; padding: 12px; border-radius: 16px; font-size: 0.85rem; display: none; }
+        .form-status.success { background: #d4edda; color: #155724; display: block; }
 
-        /* Contact Form */
-        .contact-form {
-            background: #f8fafc;
-            border-radius: 24px;
-            padding: 32px;
-            margin-top: 28px;
-            border: 1px solid #eef2f6;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #1a1a2e;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            font-size: 0.9rem;
-            font-family: inherit;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            transition: all 0.2s ease;
-        }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .submit-btn {
-            background: #1a1a2e;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-        .submit-btn:hover {
-            background: #2d2d44;
-            transform: scale(0.98);
-        }
-        .form-status {
-            margin-top: 16px;
-            padding: 12px;
-            border-radius: 16px;
-            font-size: 0.85rem;
-            display: none;
-        }
-        .form-status.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-
-        /* Share Buttons */
-        .share-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            background: #f1f5f9;
-            color: #1a1a2e;
-            border: none;
-            transition: all 0.2s ease;
-        }
-        .share-btn:hover {
-            background: #3b82f6;
-            color: white;
-            transform: translateY(-2px);
-        }
+        .share-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+        .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; cursor: pointer; background: #f1f5f9; color: var(--text-dark); border: none; transition: var(--transition); }
+        .share-btn:hover { background: var(--primary-blue); color: white; transform: translateY(-2px); }
         .share-btn.linkedin { background: #0077b5; color: white; }
         .share-btn.telegram { background: #0088cc; color: white; }
         .share-btn.twitter { background: #1da1f2; color: white; }
 
-        .quote {
-            font-size: 1rem;
-            font-style: italic;
-            color: #2d3748;
-            padding: 28px;
-            background: #f8fafc;
-            border-radius: 24px;
-            margin-top: 28px;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .footer {
-            background: #1a1a2e;
-            text-align: center;
-            padding: 32px 0;
-            font-size: 0.75rem;
-            color: #94a3b8;
-        }
+        .quote { font-size: 1rem; font-style: italic; color: #2d3748; padding: 28px; background: #f8fafc; border-radius: 24px; margin-top: 28px; border-left: 4px solid var(--primary-blue); }
+        .footer { background: var(--primary-dark); text-align: center; padding: 32px 0; font-size: 0.75rem; color: #94a3b8; }
 
         @media (max-width: 800px) {
             .hero-name { font-size: 2.2rem; }
@@ -598,6 +194,7 @@
             .skills-table td { padding-top: 0; }
             section { padding: 48px 0; }
             .hero { padding: 60px 0 40px; }
+            .nav-tab { padding: 8px 16px; font-size: 0.8rem; min-height: 44px; }
         }
     </style>
 </head>
@@ -612,6 +209,10 @@
             <button class="nav-tab" data-page="testimonials">⭐ Testimonials</button>
             <button class="nav-tab" data-page="skills">⚡ Skills</button>
             <button class="nav-tab" data-page="contact">📬 Contact</button>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="vi">🇻🇳 VI</button>
+            </div>
         </div>
     </div>
 </div>
@@ -621,124 +222,95 @@
     <div class="hero">
         <div class="container hero-grid">
             <div class="hero-main">
-                <div class="hero-name">Olga Bochkareva</div>
-                <div class="hero-title">IT Business Analyst</div>
+                <div class="hero-name" data-key="hero_name">Olga Bochkareva</div>
+                <div class="hero-title" data-key="hero_title">IT Business Analyst</div>
                 <div class="hero-meta">
-                    <div class="hero-meta-item">🌏 Digital nomad (currently Asia)</div>
-                    <div class="hero-meta-item">💻 Full-time · Remote</div>
-                    <div class="hero-meta-item">📅 10+ years experience</div>
+                    <div class="hero-meta-item"><span data-key="location">🌏 Digital nomad (currently Asia)</span></div>
+                    <div class="hero-meta-item"><span data-key="work_format">💻 Full-time · Remote</span></div>
+                    <div class="hero-meta-item"><span data-key="experience">📅 10+ years experience</span></div>
                 </div>
-                <div class="availability-badge">🌍 Open to new projects</div>
-                <div class="hero-desc">
+                <div class="availability-badge" data-key="availability">🌍 Open to new projects</div>
+                <div class="hero-desc" data-key="hero_desc">
                     Helping companies move from chaotic paper processes to clear, automated systems that actually work for people.
                 </div>
                 <div class="btn-group">
-                    <a href="#" class="btn btn-primary" data-page-link="contact">📩 Contact me</a>
-                    <a href="#" class="btn btn-outline" data-page-link="experience">📋 View experience</a>
+                    <a href="#" class="btn btn-primary" data-page-link="contact"><span data-key="btn_contact">📩 Contact me</span></a>
+                    <a href="#" class="btn btn-outline" data-page-link="experience"><span data-key="btn_experience">📋 View experience</span></a>
                 </div>
                 <div class="stats-row">
-                    <div class="stat-card"><div class="stat-number">10+</div><div>years exp</div></div>
-                    <div class="stat-card"><div class="stat-number">200+</div><div>projects</div></div>
-                    <div class="stat-card"><div class="stat-number">1000+</div><div>students trained</div></div>
+                    <div class="stat-card"><div class="stat-number">10+</div><div data-key="stat_years">years exp</div></div>
+                    <div class="stat-card"><div class="stat-number">200+</div><div data-key="stat_projects">projects</div></div>
+                    <div class="stat-card"><div class="stat-number">1000+</div><div data-key="stat_users">students trained</div></div>
                 </div>
             </div>
             <div class="hero-sidebar">
                 <div class="profile-photo">OB</div>
                 <div class="contact-row">📧 <a href="mailto:ollie_dev@icloud.com">ollie_dev@icloud.com</a></div>
                 <div class="contact-row">📱 <a href="tel:+79630339669">+7 (963) 033-39-69</a></div>
-                <div class="contact-row">🇷🇺 Russian — Native</div>
-                <div class="contact-row">🇬🇧 English — Intermediate (B2 in progress)</div>
-                <div class="contact-row">🔗 <a href="https://linkedin.com/in/olga-bochkareva" target="_blank">linkedin.com/in/olga-bochkareva</a></div>
-                <div class="contact-row">💬 <a href="https://t.me/olga_bochkareva" target="_blank">Telegram</a></div>
-                <div class="work-note">📜 Diploma with Apostille · Open to relocation</div>
+                <div class="contact-row"><span data-key="lang_info">🇷🇺 Russian — Native</span></div>
+                <div class="contact-row"><span data-key="lang_info2">🇬🇧 English — Intermediate (B2 in progress)</span></div>
+                <div class="contact-row">🔗 <a href="https://linkedin.com/in/olga-bochkareva" target="_blank" rel="noopener noreferrer">linkedin.com/in/olga-bochkareva</a></div>
+                <div class="contact-row">💬 <a href="https://t.me/olga_bochkareva" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+                <div class="contact-row">📱 <a href="https://www.instagram.com/olga.development_" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+                <div class="contact-row">🧵 <a href="https://www.threads.com/@olga.development_" target="_blank" rel="noopener noreferrer">Threads</a></div>
+                <div class="contact-row">📘 <a href="https://www.facebook.com/olga.development" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+                <div class="work-note" data-key="work_note">📜 Diploma with Apostille · Open to relocation</div>
             </div>
         </div>
     </div>
 
     <section>
         <div class="container">
-            <div class="section-title">About me</div>
+            <div class="section-title" data-key="about_title">About me</div>
             <div class="exp-card" style="margin-bottom: 0;">
                 <div class="exp-content">
-                    <p>I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.</p>
-                    <p style="margin-top: 16px;">Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.</p>
+                    <p data-key="about_text1">I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.</p>
+                    <p style="margin-top: 16px;" data-key="about_text2">Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.</p>
                 </div>
             </div>
             
-            <div class="quote">
+            <div class="quote" data-key="quote">
                 I'm not one of those people who just waits for tasks. I ask questions, find inefficiencies, and fix them. The best automation is the one you don't notice — it just works.
             </div>
             
             <div style="margin-top: 32px;">
-                <p style="font-size: 0.9rem; color: #64748b;">📍 Currently traveling across Asia, working remotely. No issues with time zones.</p>
-                <p style="font-size: 0.9rem; color: #64748b; margin-top: 8px;">🎯 Improving English to B2 and preparing for the next career step.</p>
-                <p style="font-size: 0.9rem; color: #64748b; margin-top: 8px;">💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);" data-key="location_note">📍 Currently traveling across Asia, working remotely. No issues with time zones.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;" data-key="ielts_note">🎯 Improving English to B2 and preparing for the next career step.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;" data-key="contact_note">💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.</p>
             </div>
         </div>
     </section>
 </div>
 
-<!-- PAGE: EXPERIENCE -->
+<!-- PAGE: EXPERIENCE (сокращённо для экономии места, но полная версия) -->
 <div id="page-experience" class="page">
     <section style="padding-top: 48px;">
         <div class="container">
-            <div class="section-title">Work experience</div>
+            <div class="section-title" data-key="exp_title">Work experience</div>
             <div class="grid-2">
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-title">IT Consultant</div>
-                        <div class="exp-date">Jan 2026 — present</div>
-                    </div>
-                    <div class="exp-company">Implecs · Russian Pharmacies</div>
-                    <div class="exp-content">
-                        <p>Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p>
-                        <div class="exp-result">
-                            <strong>Results:</strong>
-                            <p>✅ Faster approvals · No lost documents · Fewer support requests</p>
-                        </div>
-                    </div>
+                    <div class="exp-header"><div class="exp-title" data-key="exp1_title">IT Consultant</div><div class="exp-date" data-key="exp1_date">Jan 2026 — present</div></div>
+                    <div class="exp-company" data-key="exp1_company">Implecs · Russian Pharmacies</div>
+                    <div class="exp-content"><p data-key="exp1_desc">Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p>
+                    <div class="exp-result"><strong data-key="result">Results:</strong><p data-key="exp1_result">✅ Faster approvals · No lost documents · Fewer support requests</p></div></div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Team Lead · Dev Team</div>
-                        <div class="exp-date">Nov 2022 — Jan 2026</div>
-                    </div>
-                    <div class="exp-company">IT Navigator · Avtotrast</div>
-                    <div class="exp-content">
-                        <p>Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.</p>
-                        <div class="exp-result">
-                            <strong>Results:</strong>
-                            <p>✅ Transparent approvals · No double data entry · Reduced support load</p>
-                        </div>
-                    </div>
+                    <div class="exp-header"><div class="exp-title" data-key="exp2_title">Team Lead · Dev Team</div><div class="exp-date" data-key="exp2_date">Nov 2022 — Jan 2026</div></div>
+                    <div class="exp-company" data-key="exp2_company">IT Navigator · Avtotrast</div>
+                    <div class="exp-content"><p data-key="exp2_desc">Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.</p>
+                    <div class="exp-result"><strong data-key="proud">Results:</strong><p data-key="exp2_result">✅ Transparent approvals · No double data entry · Reduced support load</p></div></div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Lead IT Specialist</div>
-                        <div class="exp-date">Oct 2018 — Feb 2022</div>
-                    </div>
-                    <div class="exp-company">Ural Civil Aviation Plant</div>
-                    <div class="exp-content">
-                        <p>Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.</p>
-                        <div class="exp-result">
-                            <strong>Results:</strong>
-                            <p>✅ HR cabinet · Mobile version · Faster document flow</p>
-                        </div>
-                    </div>
+                    <div class="exp-header"><div class="exp-title" data-key="exp3_title">Lead IT Specialist</div><div class="exp-date" data-key="exp3_date">Oct 2018 — Feb 2022</div></div>
+                    <div class="exp-company" data-key="exp3_company">Ural Civil Aviation Plant</div>
+                    <div class="exp-content"><p data-key="exp3_desc">Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.</p>
+                    <div class="exp-result"><strong data-key="key_results">Results:</strong><p data-key="exp3_result">✅ HR cabinet · Mobile version · Faster document flow</p></div></div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Lead IT Specialist</div>
-                        <div class="exp-date">Jun 2015 — Aug 2018</div>
-                    </div>
-                    <div class="exp-company">Non-Ferrous Metals Plant</div>
-                    <div class="exp-content">
-                        <p>Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.</p>
-                        <div class="exp-result">
-                            <strong>Results:</strong>
-                            <p>✅ Smooth migration · Reliable reporting · Stable support</p>
-                        </div>
-                    </div>
+                    <div class="exp-header"><div class="exp-title" data-key="exp4_title">Lead IT Specialist</div><div class="exp-date" data-key="exp4_date">Jun 2015 — Aug 2018</div></div>
+                    <div class="exp-company" data-key="exp4_company">Non-Ferrous Metals Plant</div>
+                    <div class="exp-content"><p data-key="exp4_desc">Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.</p>
+                    <div class="exp-result"><strong data-key="what_i_did">Results:</strong><p data-key="exp4_result">✅ Smooth migration · Reliable reporting · Stable support</p></div></div>
                 </div>
             </div>
         </div>
@@ -749,44 +321,16 @@
 <div id="page-testimonials" class="page">
     <section style="padding-top: 48px;">
         <div class="container">
-            <div class="section-title">Recommendations</div>
+            <div class="section-title" data-key="testimonials_title">Recommendations</div>
             <div class="grid-2">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <span class="testimonial-company">IT Navigator</span>
-                        <span class="testimonial-signer">Ilya Filonov, Digital Director</span>
-                    </div>
-                    <div class="testimonial-text">
-                        Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <span class="testimonial-company">Implecs</span>
-                        <span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span>
-                    </div>
-                    <div class="testimonial-text">
-                        Olga works as IT Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <span class="testimonial-company">Ural Civil Aviation</span>
-                        <span class="testimonial-signer">Vladimir Zamaraev, IT Director</span>
-                    </div>
-                    <div class="testimonial-text">
-                        Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <span class="testimonial-company">Non-Ferrous Metals Plant</span>
-                        <span class="testimonial-signer">Anna Ivanova, IT Director</span>
-                    </div>
-                    <div class="testimonial-text">
-                        Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.
-                    </div>
-                </div>
+                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">IT Navigator</span><span class="testimonial-signer">Ilya Filonov, Digital Director</span></div>
+                <div class="testimonial-text" data-key="testimonial1">Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Implecs</span><span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span></div>
+                <div class="testimonial-text" data-key="testimonial2">Olga works as IT Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Ural Civil Aviation</span><span class="testimonial-signer">Vladimir Zamaraev, IT Director</span></div>
+                <div class="testimonial-text" data-key="testimonial3">Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Non-Ferrous Metals Plant</span><span class="testimonial-signer">Anna Ivanova, IT Director</span></div>
+                <div class="testimonial-text" data-key="testimonial4">Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.</div></div>
             </div>
         </div>
     </section>
@@ -796,34 +340,19 @@
 <div id="page-skills" class="page">
     <section style="padding-top: 48px;">
         <div class="container">
-            <div class="section-title">Core competencies</div>
+            <div class="section-title" data-key="skills_title">Core competencies</div>
             <table class="skills-table">
-                <tr><th>📊 Process Analysis</th><td>BPMN 2.0, Gap Analysis, Workflow Optimization, MS Visio</td></tr>
-                <tr><th>📝 Requirements Management</th><td>BRD, SRS, User Stories, Use Cases</td></tr>
-                <tr><th>⚙️ Implementation & Support</th><td>System Configuration, UAT, End-User Training, Tech Docs</td></tr>
-                <tr><th>🔄 Integration Analysis</th><td>ERP, HRIS, EDI (Kontur Diadok)</td></tr>
-                <tr><th>🛠️ Tools</th><td>Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform</td></tr>
+                <tr><th data-key="skill1_cat">📊 Process Analysis</th><td data-key="skill1_desc">BPMN 2.0, Gap Analysis, Workflow Optimization, MS Visio</td></tr>
+                <tr><th data-key="skill2_cat">📝 Requirements Management</th><td data-key="skill2_desc">BRD, SRS, User Stories, Use Cases</td></tr>
+                <tr><th data-key="skill3_cat">⚙️ Implementation & Support</th><td data-key="skill3_desc">System Configuration, UAT, End-User Training, Tech Docs</td></tr>
+                <tr><th data-key="skill4_cat">🔄 Integration Analysis</th><td data-key="skill4_desc">ERP, HRIS, EDI (Kontur Diadok)</td></tr>
+                <tr><th data-key="skill5_cat">🛠️ Tools</th><td data-key="skill5_desc">Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform</td></tr>
             </table>
-            <div style="margin-top: 40px;">
-                <div class="section-title" style="font-size: 1.3rem;">🛠️ Tech stack</div>
-                <div class="tools-grid">
-                    <span class="tool-tag">Jira</span>
-                    <span class="tool-tag">Confluence</span>
-                    <span class="tool-tag">MS Visio</span>
-                    <span class="tool-tag">BPMN 2.0</span>
-                    <span class="tool-tag">SQL (basic)</span>
-                    <span class="tool-tag">1C Platform</span>
-                </div>
-            </div>
-            <div style="margin-top: 48px;">
-                <div class="section-title" style="font-size: 1.3rem;">🎓 Education</div>
-                <div class="exp-card" style="margin-bottom: 0;">
-                    <div class="exp-content">
-                        <p><strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010</p>
-                        <p style="margin-top: 12px;"><strong>Additional:</strong> Document Management, 1C:Archive, 1C:ERP</p>
-                    </div>
-                </div>
-            </div>
+            <div style="margin-top: 40px;"><div class="section-title" style="font-size: 1.3rem;" data-key="tools_title">🛠️ Tech stack</div>
+            <div class="tools-grid"><span class="tool-tag">Jira</span><span class="tool-tag">Confluence</span><span class="tool-tag">MS Visio</span><span class="tool-tag">BPMN 2.0</span><span class="tool-tag">SQL (basic)</span><span class="tool-tag">1C Platform</span></div></div>
+            <div style="margin-top: 48px;"><div class="section-title" style="font-size: 1.3rem;" data-key="edu_title">🎓 Education</div>
+            <div class="exp-card" style="margin-bottom: 0;"><div class="exp-content"><p data-key="edu1"><strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010</p>
+            <p style="margin-top: 12px;" data-key="edu2"><strong>Additional:</strong> Document Management, 1C:Archive, 1C:ERP</p></div></div></div>
         </div>
     </section>
 </div>
@@ -832,34 +361,27 @@
 <div id="page-contact" class="page">
     <section style="padding-top: 48px;">
         <div class="container">
-            <div class="section-title">Get in touch</div>
+            <div class="section-title" data-key="contact_title">Get in touch</div>
             <div class="exp-card" style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <p style="margin-bottom: 24px;">Need someone who understands business processes and can talk to both users and developers? Let's connect.</p>
+                <p style="margin-bottom: 24px;" data-key="contact_text">Need someone who understands business processes and can talk to both users and developers? Let's connect.</p>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px;">
                     <a href="mailto:ollie_dev@icloud.com" class="btn btn-primary">📧 ollie_dev@icloud.com</a>
                     <a href="tel:+79630339669" class="btn btn-outline">📞 +7 (963) 033-39-69</a>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-                    <a href="https://linkedin.com/in/olga-bochkareva" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
-                    <a href="https://t.me/olga_bochkareva" target="_blank" class="btn btn-outline">💬 Telegram</a>
+                    <a href="https://linkedin.com/in/olga-bochkareva" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 LinkedIn</a>
+                    <a href="https://t.me/olga_bochkareva" target="_blank" rel="noopener noreferrer" class="btn btn-outline">💬 Telegram</a>
                 </div>
-                <div class="contact-form">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 20px;">📨 Send a message</h3>
-                    <form id="contact-form">
-                        <div class="form-group"><label>Name *</label><input type="text" id="name" required placeholder="Your name"></div>
-                        <div class="form-group"><label>Email *</label><input type="email" id="email" required placeholder="your@email.com"></div>
-                        <div class="form-group"><label>Message *</label><textarea id="message" required placeholder="Tell me about your project..."></textarea></div>
-                        <button type="submit" class="submit-btn">✉️ Send message</button>
-                        <div id="form-status" class="form-status"></div>
-                    </form>
-                </div>
-                <div class="share-buttons">
-                    <button class="share-btn linkedin" onclick="shareOnLinkedIn()">🔗 LinkedIn</button>
-                    <button class="share-btn telegram" onclick="shareOnTelegram()">💬 Telegram</button>
-                    <button class="share-btn twitter" onclick="shareOnTwitter()">🐦 X</button>
-                </div>
-                <p style="margin-top: 28px;">🌍 Currently in Southeast Asia · Available worldwide</p>
-                <p style="margin-top: 10px; font-size: 0.75rem; color: #64748b;">📅 Full-time · Remote · No issues with time zones</p>
+                <div class="contact-form"><h3 style="font-size: 1.1rem; margin-bottom: 20px;" data-key="form_title">📨 Send a message</h3>
+                <form id="contact-form"><div class="form-group"><label data-key="form_name">Name *</label><input type="text" id="name" required placeholder="Your name"></div>
+                <div class="form-group"><label data-key="form_email">Email *</label><input type="email" id="email" required placeholder="your@email.com"></div>
+                <div class="form-group"><label data-key="form_message">Message *</label><textarea id="message" required placeholder="Tell me about your project..."></textarea></div>
+                <button type="submit" class="submit-btn" data-key="form_submit">✉️ Send message</button><div id="form-status" class="form-status"></div></form></div>
+                <div class="share-buttons"><button class="share-btn linkedin" data-platform="linkedin" onclick="shareOnLinkedIn()">🔗 LinkedIn</button>
+                <button class="share-btn telegram" data-platform="telegram" onclick="shareOnTelegram()">💬 Telegram</button>
+                <button class="share-btn twitter" data-platform="twitter" onclick="shareOnTwitter()">🐦 X</button></div>
+                <p style="margin-top: 28px;" data-key="contact_location">🌍 Currently in Southeast Asia · Available worldwide</p>
+                <p style="margin-top: 10px; font-size: 0.75rem; color: var(--text-muted);" data-key="contact_note">📅 Full-time · Remote · No issues with time zones</p>
             </div>
         </div>
     </section>
@@ -867,20 +389,131 @@
 
 <div class="footer">
     <div class="container">
-        <p>© 2026 Olga Bochkareva — IT Business Analyst | 10+ years of experience</p>
+        <p data-key="footer">© 2026 Olga Bochkareva — IT Business Analyst | 10+ years of experience</p>
     </div>
 </div>
 
 <script>
-    function shareOnLinkedIn() {
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank', 'width=600,height=500');
+    const translations = {
+        en: {
+            hero_name: "Olga Bochkareva", hero_title: "IT Business Analyst",
+            location: "🌏 Digital nomad (currently Asia)", work_format: "💻 Full-time · Remote",
+            experience: "📅 10+ years experience", availability: "🌍 Open to new projects",
+            hero_desc: "Helping companies move from chaotic paper processes to clear, automated systems that actually work for people.",
+            btn_contact: "📩 Contact me", btn_experience: "📋 View experience",
+            stat_years: "years exp", stat_projects: "projects", stat_users: "students trained",
+            lang_info: "🇷🇺 Russian — Native", lang_info2: "🇬🇧 English — Intermediate (B2 in progress)",
+            work_note: "📜 Diploma with Apostille · Open to relocation",
+            about_title: "About me",
+            about_text1: "I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.",
+            about_text2: "Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.",
+            quote: "I'm not one of those people who just waits for tasks. I ask questions, find inefficiencies, and fix them. The best automation is the one you don't notice — it just works.",
+            location_note: "📍 Currently traveling across Asia, working remotely. No issues with time zones.",
+            ielts_note: "🎯 Improving English to B2 and preparing for the next career step.",
+            contact_note: "💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.",
+            exp_title: "Work experience",
+            exp1_title: "IT Consultant", exp1_date: "Jan 2026 — present", exp1_company: "Implecs · Russian Pharmacies",
+            exp1_desc: "Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.",
+            result: "Results:", exp1_result: "✅ Faster approvals · No lost documents · Fewer support requests",
+            exp2_title: "Team Lead · Dev Team", exp2_date: "Nov 2022 — Jan 2026", exp2_company: "IT Navigator · Avtotrast",
+            exp2_desc: "Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.",
+            proud: "Results:", exp2_result: "✅ Transparent approvals · No double data entry · Reduced support load",
+            exp3_title: "Lead IT Specialist", exp3_date: "Oct 2018 — Feb 2022", exp3_company: "Ural Civil Aviation Plant",
+            exp3_desc: "Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.",
+            key_results: "Results:", exp3_result: "✅ HR cabinet · Mobile version · Faster document flow",
+            exp4_title: "Lead IT Specialist", exp4_date: "Jun 2015 — Aug 2018", exp4_company: "Non-Ferrous Metals Plant",
+            exp4_desc: "Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.",
+            what_i_did: "Results:", exp4_result: "✅ Smooth migration · Reliable reporting · Stable support",
+            testimonials_title: "Recommendations",
+            testimonial1: "Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.",
+            testimonial2: "Olga works as IT Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.",
+            testimonial3: "Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.",
+            testimonial4: "Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.",
+            skills_title: "Core competencies",
+            skill1_cat: "📊 Process Analysis", skill1_desc: "BPMN 2.0, Gap Analysis, Workflow Optimization, MS Visio",
+            skill2_cat: "📝 Requirements Management", skill2_desc: "BRD, SRS, User Stories, Use Cases",
+            skill3_cat: "⚙️ Implementation & Support", skill3_desc: "System Configuration, UAT, End-User Training, Tech Docs",
+            skill4_cat: "🔄 Integration Analysis", skill4_desc: "ERP, HRIS, EDI (Kontur Diadok)",
+            skill5_cat: "🛠️ Tools", skill5_desc: "Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform",
+            tools_title: "🛠️ Tech stack", edu_title: "🎓 Education",
+            edu1: "<strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010",
+            edu2: "<strong>Additional:</strong> Document Management, 1C:Archive, 1C:ERP",
+            contact_title: "Get in touch", contact_text: "Need someone who understands business processes and can talk to both users and developers? Let's connect.",
+            contact_location: "🌍 Currently in Southeast Asia · Available worldwide", contact_note: "📅 Full-time · Remote · No issues with time zones",
+            form_title: "📨 Send a message", form_name: "Name *", form_email: "Email *", form_message: "Message *", form_submit: "✉️ Send message", footer: "© 2026 Olga Bochkareva — IT Business Analyst | 10+ years of experience"
+        },
+        vi: {
+            hero_name: "Olga Bochkareva", hero_title: "Chuyên gia phân tích kinh doanh CNTT",
+            location: "🌏 Người du mục số (hiện đang ở Châu Á)", work_format: "💻 Toàn thời gian · Làm việc từ xa",
+            experience: "📅 10+ năm kinh nghiệm", availability: "🌍 Sẵn sàng cho dự án mới",
+            hero_desc: "Giúp các công ty thoát khỏi sự hỗn loạn của quy trình giấy tờ để hướng tới hệ thống tự động hóa rõ ràng, thực sự hiệu quả cho con người.",
+            btn_contact: "📩 Liên hệ", btn_experience: "📋 Xem kinh nghiệm",
+            stat_years: "năm KN", stat_projects: "dự án", stat_users: "học viên",
+            lang_info: "🇷🇺 Tiếng Nga — Bản ngữ", lang_info2: "🇬🇧 Tiếng Anh — Trung cấp (đang học B2)",
+            work_note: "📜 Bằng cấp có Apostille · Sẵn sàng di chuyển",
+            about_title: "Về tôi",
+            about_text1: "Tôi không phải là lập trình viên — tôi là cầu nối giữa sự hỗn loạn của doanh nghiệp và hệ thống vận hành. Tôi trò chuyện với người dùng, vẽ ra cách mọi thứ thực sự vận hành, tìm điểm nghẽn và thiết kế giải pháp loại bỏ thất lạc tài liệu, tăng tốc phê duyệt và giảm yêu cầu hỗ trợ.",
+            about_text2: "Dược phẩm, phụ tùng ô tô, hàng không, luyện kim — tôi đã làm việc qua nhiều ngành. Tôi đã đào tạo hàng trăm người dùng và thấy tài liệu hướng dẫn tốt giảm đáng kể tải cho bộ phận hỗ trợ kỹ thuật.",
+            quote: "Tôi không phải kiểu người chỉ ngồi chờ việc. Tôi đặt câu hỏi, tìm ra sự kém hiệu quả và sửa chúng. Tự động hóa tốt nhất là thứ bạn không nhận ra — nó cứ thế hoạt động.",
+            location_note: "📍 Hiện đang đi du lịch khắp Châu Á và làm việc từ xa. Không vấn đề gì với múi giờ.",
+            ielts_note: "🎯 Đang cải thiện tiếng Anh lên B2 và chuẩn bị cho bước tiếp theo trong sự nghiệp.",
+            contact_note: "💬 Cần một người thực sự hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
+            exp_title: "Kinh nghiệm làm việc",
+            exp1_title: "Chuyên gia tư vấn CNTT", exp1_date: "Thg1 2026 — nay", exp1_company: "Implecs · Dự án 'Hiệu thuốc Nga'",
+            exp1_desc: "Giảm thời gian phê duyệt khiếu nại từ 14 xuống 7 ngày. Cấu hình luồng phê duyệt cho tài liệu pháp lý và hợp đồng thuê.",
+            result: "Kết quả:", exp1_result: "✅ Phê duyệt nhanh hơn · Không mất tài liệu · Ít yêu cầu hỗ trợ hơn",
+            exp2_title: "Trưởng nhóm phát triển", exp2_date: "Thg11 2022 — Thg1 2026", exp2_company: "IT Navigator · Dự án 'Avtotrast'",
+            exp2_desc: "Đào tạo 150+ người dùng → giảm 70% yêu cầu hỗ trợ. Cấu hình quy trình phê duyệt phức tạp và tích hợp.",
+            proud: "Kết quả:", exp2_result: "✅ Phê duyệt minh bạch · Không nhập trùng dữ liệu · Giảm tải hỗ trợ",
+            exp3_title: "Chuyên viên CNTT chính", exp3_date: "Thg10 2018 — Thg2 2022", exp3_company: "Nhà máy hàng không dân dụng Ural",
+            exp3_desc: "Dẫn dắt triển khai hệ thống quản lý tài liệu cho 200+ người dùng. Ra mắt thí điểm trong 2 tháng. Phê duyệt nhanh hơn 40%.",
+            key_results: "Kết quả:", exp3_result: "✅ HR cabinet · Bản di động · Luồng tài liệu nhanh hơn",
+            exp4_title: "Chuyên viên CNTT chính", exp4_date: "Thg6 2015 — Thg8 2018", exp4_company: "Nhà máy kim loại màu",
+            exp4_desc: "Di chuyển không mất dữ liệu trong 4 tháng. 20+ biểu mẫu in, 15+ báo cáo SKD. Hỗ trợ 100+ người dùng.",
+            what_i_did: "Kết quả:", exp4_result: "✅ Di chuyển mượt mà · Báo cáo đáng tin cậy · Hỗ trợ ổn định",
+            testimonials_title: "Đề xuất",
+            testimonial1: "Olga làm Trưởng nhóm. Cô ấy đã đào tạo 150+ người dùng, cấu hình quy trình phức tạp và giảm 70% yêu cầu hỗ trợ. Rất được khuyến khích.",
+            testimonial2: "Olga làm Chuyên gia tư vấn CNTT. Cô ấy đã tự động hóa khiếu nại pháp lý và hợp đồng thuê, giảm đáng kể thời gian phê duyệt. Một chuyên gia có trách nhiệm làm việc hoàn toàn từ xa.",
+            testimonial3: "Olga dẫn dắt triển khai hệ thống quản lý tài liệu với vai trò Chuyên viên CNTT chính. Ra mắt thí điểm trong 2 tháng. Kỹ năng quản lý dự án tuyệt vời.",
+            testimonial4: "Olga đã di chuyển thành công báo cáo tài chính mà không mất dữ liệu. Chuyên gia đáng tin cậy và chú ý đến chi tiết.",
+            skills_title: "Năng lực cốt lõi",
+            skill1_cat: "📊 Phân tích quy trình", skill1_desc: "BPMN 2.0, Phân tích khoảng cách, Tối ưu hóa quy trình, MS Visio",
+            skill2_cat: "📝 Quản lý yêu cầu", skill2_desc: "BRD, SRS, User Stories, Use Cases",
+            skill3_cat: "⚙️ Triển khai & Hỗ trợ", skill3_desc: "Cấu hình hệ thống, UAT, Đào tạo người dùng, Tài liệu kỹ thuật",
+            skill4_cat: "🔄 Phân tích tích hợp", skill4_desc: "ERP, HRIS, EDI (Kontur Diadok)",
+            skill5_cat: "🛠️ Công cụ", skill5_desc: "Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform",
+            tools_title: "🛠️ Công nghệ", edu_title: "🎓 Học vấn",
+            edu1: "<strong>Chuyên gia Tin học</strong> (Bằng cấp có Apostille) – Đại học Sư phạm Bang Ural, 2010",
+            edu2: "<strong>Bổ sung:</strong> Quản lý tài liệu, 1C:Archive, 1C:ERP",
+            contact_title: "Liên hệ", contact_text: "Cần một người hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
+            contact_location: "🌍 Hiện tại ở Đông Nam Á · Có mặt trên toàn thế giới", contact_note: "📅 Toàn thời gian · Làm việc từ xa · Không vấn đề với múi giờ",
+            form_title: "📨 Gửi tin nhắn", form_name: "Tên *", form_email: "Email *", form_message: "Tin nhắn *", form_submit: "✉️ Gửi tin nhắn", footer: "© 2026 Olga Bochkarewa — Chuyên gia phân tích kinh doanh CNTT | 10+ năm kinh nghiệm"
+        }
+    };
+
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang] && translations[lang][key] !== undefined) {
+                if (key === 'edu1' || key === 'edu2') {
+                    el.innerHTML = translations[lang][key];
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+        localStorage.setItem('preferred_language', lang);
     }
-    function shareOnTelegram() {
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Olga Bochkareva - IT Business Analyst. 10+ years experience.')}`, '_blank', 'width=600,height=500');
-    }
-    function shareOnTwitter() {
-        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('IT Business Analyst with 10+ years experience. Business process automation.')}`, '_blank', 'width=600,height=500');
-    }
+
+    function shareOnLinkedIn() { window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank', 'width=600,height=500'); }
+    function shareOnTelegram() { window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Olga Bochkareva - IT Business Analyst. 10+ years experience.')}`, '_blank', 'width=600,height=500'); }
+    function shareOnTwitter() { window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('IT Business Analyst with 10+ years experience. Business process automation.')}`, '_blank', 'width=600,height=500'); }
 
     const form = document.getElementById('contact-form');
     if (form) {
@@ -888,7 +521,7 @@
             e.preventDefault();
             const status = document.getElementById('form-status');
             status.className = 'form-status success';
-            status.innerHTML = '✅ Thank you! Your message has been sent. I will reply within 24 hours.';
+            status.innerHTML = currentLang === 'vi' ? '✅ Cảm ơn! Tin nhắn của bạn đã được gửi. Tôi sẽ trả lời trong vòng 24 giờ.' : '✅ Thank you! Your message has been sent. I will reply within 24 hours.';
             form.reset();
             setTimeout(() => { status.style.display = 'none'; status.className = 'form-status'; }, 5000);
         });
@@ -904,6 +537,7 @@
 
     document.querySelectorAll('.nav-tab').forEach(tab => tab.addEventListener('click', () => switchPage(tab.getAttribute('data-page'))));
     document.querySelectorAll('[data-page-link]').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); switchPage(link.getAttribute('data-page-link')); }));
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => switchLanguage(btn.getAttribute('data-lang'))));
 
     function handleHash() {
         const hash = window.location.hash.substring(1);
@@ -911,6 +545,10 @@
         else switchPage('profile');
     }
     window.addEventListener('hashchange', handleHash);
+
+    const savedLang = localStorage.getItem('preferred_language');
+    if (savedLang && translations[savedLang]) switchLanguage(savedLang);
+    else { document.querySelector('.lang-btn[data-lang="en"]').classList.add('active'); switchLanguage('en'); }
     handleHash();
 </script>
 </body>
