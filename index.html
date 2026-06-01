@@ -42,6 +42,9 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script>
     
+    <!-- Настоящая библиотека для генерации QR-кода -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -143,10 +146,16 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             border-color: var(--primary-blue);
         }
-        .qr-code {
+        #qr-code {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        #qr-code img, #qr-code canvas {
             width: 150px;
             height: 150px;
-            margin-bottom: 12px;
+            border-radius: 12px;
         }
         .qr-label {
             font-size: 0.7rem;
@@ -278,9 +287,9 @@
                 <div class="contact-row">🧵 <a href="https://www.threads.com/@olga.development_" target="_blank" rel="noopener noreferrer">Threads</a></div>
                 <div class="contact-row">📘 <a href="https://www.facebook.com/olga.development" target="_blank" rel="noopener noreferrer">Facebook</a></div>
                 
-                <!-- QR КОД (исправленный, рабочий) -->
+                <!-- РАБОЧИЙ QR-КОД -->
                 <div class="qr-container">
-                    <canvas id="qrCanvas" class="qr-code" width="150" height="150"></canvas>
+                    <div id="qr-code"></div>
                     <div class="qr-label" data-key="qr_label">📱 Scan QR to visit my website</div>
                 </div>
                 
@@ -395,172 +404,43 @@
 </div>
 
 <script>
-    // ============================================================
-    // ГЕНЕРАТОР QR-КОДА (чистый JavaScript, без внешних библиотек)
-    // ============================================================
+    // НАСТОЯЩИЙ РАБОЧИЙ QR-КОД
     (function() {
-        // Функция для генерации QR-кода в стиле матрицы
-        function generateQRCode() {
-            const canvas = document.getElementById('qrCanvas');
-            if (!canvas) return;
+        function generateRealQRCode() {
+            const qrContainer = document.getElementById('qr-code');
+            if (!qrContainer) return;
             
+            // Очищаем контейнер
+            qrContainer.innerHTML = '';
+            
+            // Получаем текущий URL (без хэша)
             const currentUrl = window.location.href.split('#')[0];
-            const size = 150;
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext('2d');
             
-            // Заливаем белый фон
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, size, size);
-            
-            const blockSize = size / 29;
-            const margin = blockSize * 2;
-            const qrSize = size - margin * 2;
-            
-            // Рисуем три угловых маркера (как в настоящем QR-коде)
-            function drawPositionMarker(x, y) {
-                // Внешний квадрат
-                ctx.fillStyle = '#1a1a2e';
-                ctx.fillRect(x, y, blockSize * 7, blockSize * 7);
-                // Внутренний белый квадрат
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(x + blockSize, y + blockSize, blockSize * 5, blockSize * 5);
-                // Центральный чёрный квадрат
-                ctx.fillStyle = '#1a1a2e';
-                ctx.fillRect(x + blockSize * 2, y + blockSize * 2, blockSize * 3, blockSize * 3);
-            }
-            
-            // Верхний левый маркер
-            drawPositionMarker(margin, margin);
-            // Верхний правый маркер
-            drawPositionMarker(size - margin - blockSize * 7, margin);
-            // Нижний левый маркер
-            drawPositionMarker(margin, size - margin - blockSize * 7);
-            
-            // Генерация случайного узора (имитация данных)
-            ctx.fillStyle = '#1a1a2e';
-            
-            // Создаём массив для хранения занятых позиций (чтобы избежать наложения на маркеры)
-            const occupied = new Array(29);
-            for (let i = 0; i < 29; i++) {
-                occupied[i] = new Array(29);
-                for (let j = 0; j < 29; j++) {
-                    occupied[i][j] = false;
-                }
-            }
-            
-            // Отмечаем занятые области маркеров
-            // Левый верхний
-            for (let i = 0; i < 7; i++) {
-                for (let j = 0; j < 7; j++) {
-                    if (margin + i * blockSize < size && margin + j * blockSize < size) {
-                        occupied[i][j] = true;
-                    }
-                }
-            }
-            // Правый верхний
-            const rightX = size - margin - blockSize * 7;
-            for (let i = 0; i < 7; i++) {
-                for (let j = 0; j < 7; j++) {
-                    occupied[i][28 - 7 + j] = true;
-                }
-            }
-            // Левый нижний
-            const bottomY = size - margin - blockSize * 7;
-            for (let i = 0; i < 7; i++) {
-                for (let j = 0; j < 7; j++) {
-                    occupied[28 - 7 + i][j] = true;
-                }
-            }
-            
-            // Создаём семантический QR-код на основе URL
-            // Преобразуем URL в бинарные данные (упрощённо)
-            let binaryData = '';
-            for (let i = 0; i < currentUrl.length; i++) {
-                let code = currentUrl.charCodeAt(i).toString(2);
-                while (code.length < 8) code = '0' + code;
-                binaryData += code;
-            }
-            
-            // Заполняем QR-код данными
-            let dataIndex = 0;
-            // Используем паттерн для создания настоящего вида QR-кода
-            for (let row = 0; row < 29; row++) {
-                for (let col = 0; col < 29; col++) {
-                    // Пропускаем занятые области (маркеры)
-                    if (occupied[row][col]) continue;
-                    
-                    // Определяем, должна ли быть точка
-                    let shouldDraw = false;
-                    
-                    // Используем комбинацию URL-данных и позиции
-                    const x = margin + col * blockSize;
-                    const y = margin + row * blockSize;
-                    
-                    if (dataIndex < binaryData.length) {
-                        shouldDraw = binaryData[dataIndex] === '1';
-                        dataIndex++;
-                    } else {
-                        // Если данные закончились, используем позиционные паттерны
-                        const pattern1 = (row * 7 + col * 3) % 5 === 0;
-                        const pattern2 = (row * col) % 7 === 0;
-                        shouldDraw = pattern1 || pattern2;
-                    }
-                    
-                    if (shouldDraw) {
-                        ctx.fillRect(x, y, blockSize, blockSize);
-                    }
-                }
-            }
-            
-            // Добавляем дополнительные точки для плотности (как в настоящем QR-коде)
-            for (let i = 0; i < 100; i++) {
-                const col = Math.floor(Math.random() * 29);
-                const row = Math.floor(Math.random() * 29);
-                if (!occupied[row][col]) {
-                    const x = margin + col * blockSize;
-                    const y = margin + row * blockSize;
-                    if (Math.random() > 0.5) {
-                        ctx.fillRect(x, y, blockSize, blockSize);
-                    }
-                }
-            }
-            
-            // Добавляем центральный логотип с инициалами OB
-            const logoSize = 28;
-            const logoX = (size - logoSize) / 2;
-            const logoY = (size - logoSize) / 2;
-            // Белый фон для логотипа
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(logoX - 2, logoY - 2, logoSize + 4, logoSize + 4);
-            // Логотип
-            ctx.fillStyle = '#1a1a2e';
-            ctx.font = `bold ${logoSize - 8}px -apple-system`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('OB', size / 2, size / 2);
-            
-            // Добавляем тонкую рамку вокруг QR-кода
-            ctx.strokeStyle = '#e2e8f0';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(margin - 2, margin - 2, qrSize + 4, qrSize + 4);
+            // Создаём настоящий QR-код с помощью библиотеки qrcodejs
+            new QRCode(qrContainer, {
+                text: currentUrl,
+                width: 150,
+                height: 150,
+                colorDark: "#1a1a2e",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
         }
         
-        // Запускаем генерацию после загрузки страницы
+        // Запускаем после загрузки страницы
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', generateQRCode);
+            document.addEventListener('DOMContentLoaded', generateRealQRCode);
         } else {
-            generateQRCode();
+            generateRealQRCode();
         }
         
-        // Обновляем QR-код при изменении URL (если нужно)
+        // Если URL изменится (например, при смене языка через hash), обновим QR-код
         let lastUrl = window.location.href;
         setInterval(function() {
             const newUrl = window.location.href;
             if (newUrl !== lastUrl) {
                 lastUrl = newUrl;
-                generateQRCode();
+                generateRealQRCode();
             }
         }, 500);
     })();
