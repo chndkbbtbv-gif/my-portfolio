@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Olga Bochkareva | IT Business Analyst</title>
+    <title>Olga Bochkareva | EDMS & BPM Analyst</title>
     
-    <meta name="description" content="Olga Bochkareva - IT Business Analyst with 10+ years of experience. Specializing in process automation, BPMN, requirements engineering.">
-    <meta name="keywords" content="IT Business Analyst, business analyst, process automation, BPMN, requirements engineering, digital nomad">
+    <meta name="description" content="Olga Bochkareva - EDMS & BPM Analyst. 10+ years of experience. Specializing in approval workflows, GRC automation, process optimization.">
+    <meta name="keywords" content="EDMS, BPM, Business Analyst, process automation, workflow optimization, GRC, ECM">
     <meta name="author" content="Olga Bochkareva">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://olga-bochkareva.com/">
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EOB%3C/text%3E%3C/svg%3E">
     
-    <meta property="og:title" content="Olga Bochkareva | IT Business Analyst">
-    <meta property="og:description" content="IT Business Analyst with 10+ years of experience. Process automation expert. 200+ projects delivered.">
+    <meta property="og:title" content="Olga Bochkareva | EDMS & BPM Analyst">
+    <meta property="og:description" content="EDMS & BPM Analyst. Process optimization, GRC automation, approval workflows. 10+ years experience.">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="en_US">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Olga Bochkareva | IT Business Analyst">
+    <meta name="twitter:title" content="Olga Bochkareva | EDMS & BPM Analyst">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Olga Bochkareva",
-      "jobTitle": "IT Business Analyst",
+      "jobTitle": "EDMS & BPM Analyst",
       "url": "https://olga-bochkareva.com",
       "email": "ollie_dev@icloud.com",
       "telephone": "+79630339669",
-      "knowsLanguage": ["English", "Vietnamese"]
+      "knowsLanguage": ["English", "Russian", "Vietnamese"]
     }
     </script>
     
@@ -42,7 +42,7 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script>
     
-    <!-- Настоящая библиотека для генерации QR-кода -->
+    <!-- QR Code Library -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     
     <style>
@@ -128,7 +128,6 @@
         .contact-row a { color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
         .contact-row a:hover { color: var(--primary-blue); }
 
-        /* QR Code styles */
         .qr-container {
             display: flex;
             flex-direction: column;
@@ -185,6 +184,53 @@
         .testimonial-signer { font-size: 0.7rem; color: var(--text-muted); }
         .testimonial-text { font-size: 0.92rem; color: #2d3748; line-height: 1.6; }
 
+        /* Case Studies Table */
+        .cases-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .cases-table th {
+            background: #f0f7ff;
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .cases-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+            color: #2d3748;
+            vertical-align: top;
+        }
+        .cases-table tr:last-child td {
+            border-bottom: none;
+        }
+        .cases-table .result {
+            font-weight: 600;
+            color: #10b981;
+        }
+        .case-badge {
+            background: #e8f4f0;
+            color: #0f6e4a;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .case-kpi {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
         .skills-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-light); }
         .skills-table th, .skills-table td { padding: 18px 24px; text-align: left; border-bottom: 1px solid var(--border-light); }
         .skills-table th { font-weight: 600; color: var(--text-dark); background: #f8fafc; width: 30%; }
@@ -220,13 +266,15 @@
             .container { padding: 0 20px; }
             .hero-grid { flex-direction: column; }
             .grid-2 { grid-template-columns: 1fr; }
+            .cases-table th, .cases-table td { display: block; width: 100%; }
+            .cases-table th { border-bottom: none; padding-bottom: 8px; }
+            .cases-table td { padding-top: 0; }
             .skills-table th, .skills-table td { display: block; width: 100%; }
             .skills-table th { border-bottom: none; padding-bottom: 8px; }
             .skills-table td { padding-top: 0; }
             section { padding: 48px 0; }
             .hero { padding: 60px 0 40px; }
             .nav-tab { padding: 8px 16px; font-size: 0.8rem; min-height: 44px; }
-            .qr-code { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -234,10 +282,11 @@
 
 <div class="header">
     <div class="container header-inner">
-        <div class="logo">Olga Bochkareva <span>| IT Business Analyst</span></div>
+        <div class="logo">Olga Bochkareva <span>| EDMS & BPM Analyst</span></div>
         <div class="nav">
             <button class="nav-tab active" data-page="profile">👤 Profile</button>
             <button class="nav-tab" data-page="experience">💼 Experience</button>
+            <button class="nav-tab" data-page="cases">📊 Case Studies</button>
             <button class="nav-tab" data-page="testimonials">⭐ Testimonials</button>
             <button class="nav-tab" data-page="skills">⚡ Skills</button>
             <button class="nav-tab" data-page="contact">📬 Contact</button>
@@ -255,7 +304,7 @@
         <div class="container hero-grid">
             <div class="hero-main">
                 <div class="hero-name" data-key="hero_name">Olga Bochkareva</div>
-                <div class="hero-title" data-key="hero_title">IT Business Analyst</div>
+                <div class="hero-title" data-key="hero_title">EDMS & BPM Analyst</div>
                 <div class="hero-meta">
                     <div class="hero-meta-item"><span data-key="location">🌏 Digital nomad (currently Asia)</span></div>
                     <div class="hero-meta-item"><span data-key="work_format">💻 Full-time · Remote</span></div>
@@ -263,16 +312,16 @@
                 </div>
                 <div class="availability-badge" data-key="availability">🌍 Open to new projects</div>
                 <div class="hero-desc" data-key="hero_desc">
-                    Helping companies move from chaotic paper processes to clear, automated systems that actually work for people.
+                    I help companies transform chaotic paper processes into clear, automated workflows. Specializing in approval cycle optimization, GRC automation, and ERP‑integrated EDMS.
                 </div>
                 <div class="btn-group">
                     <a href="#" class="btn btn-primary" data-page-link="contact"><span data-key="btn_contact">📩 Contact me</span></a>
-                    <a href="#" class="btn btn-outline" data-page-link="experience"><span data-key="btn_experience">📋 View experience</span></a>
+                    <a href="#" class="btn btn-outline" data-page-link="cases"><span data-key="btn_cases">📋 View case studies</span></a>
                 </div>
                 <div class="stats-row">
                     <div class="stat-card"><div class="stat-number">10+</div><div data-key="stat_years">years exp</div></div>
                     <div class="stat-card"><div class="stat-number">200+</div><div data-key="stat_projects">projects</div></div>
-                    <div class="stat-card"><div class="stat-number">1000+</div><div data-key="stat_users">students trained</div></div>
+                    <div class="stat-card"><div class="stat-number">1000+</div><div data-key="stat_users">users trained</div></div>
                 </div>
             </div>
             <div class="hero-sidebar">
@@ -287,7 +336,6 @@
                 <div class="contact-row">🧵 <a href="https://www.threads.com/@olga.development_" target="_blank" rel="noopener noreferrer">Threads</a></div>
                 <div class="contact-row">📘 <a href="https://www.facebook.com/olga.development" target="_blank" rel="noopener noreferrer">Facebook</a></div>
                 
-                <!-- РАБОЧИЙ QR-КОД -->
                 <div class="qr-container">
                     <div id="qr-code"></div>
                     <div class="qr-label" data-key="qr_label">📱 Scan QR to visit my website</div>
@@ -327,10 +375,44 @@
         <div class="container">
             <div class="section-title" data-key="exp_title">Work experience</div>
             <div class="grid-2">
-                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="exp1_title">IT Consultant</div><div class="exp-date" data-key="exp1_date">Jan 2026 — present</div></div><div class="exp-company" data-key="exp1_company">Implecs · Russian Pharmacies</div><div class="exp-content"><p data-key="exp1_desc">Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p><div class="exp-result"><strong data-key="result">Results:</strong><p data-key="exp1_result">✅ Faster approvals · No lost documents · Fewer support requests</p></div></div></div>
+                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="exp1_title">EDMS Consultant</div><div class="exp-date" data-key="exp1_date">Jan 2026 — present</div></div><div class="exp-company" data-key="exp1_company">Implecs · Russian Pharmacies</div><div class="exp-content"><p data-key="exp1_desc">Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p><div class="exp-result"><strong data-key="result">Results:</strong><p data-key="exp1_result">✅ Faster approvals · No lost documents · Fewer support requests</p></div></div></div>
                 <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="exp2_title">Team Lead · Dev Team</div><div class="exp-date" data-key="exp2_date">Nov 2022 — Jan 2026</div></div><div class="exp-company" data-key="exp2_company">IT Navigator · Avtotrast</div><div class="exp-content"><p data-key="exp2_desc">Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.</p><div class="exp-result"><strong data-key="proud">Results:</strong><p data-key="exp2_result">✅ Transparent approvals · No double data entry · Reduced support load</p></div></div></div>
                 <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="exp3_title">Lead IT Specialist</div><div class="exp-date" data-key="exp3_date">Oct 2018 — Feb 2022</div></div><div class="exp-company" data-key="exp3_company">Ural Civil Aviation Plant</div><div class="exp-content"><p data-key="exp3_desc">Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.</p><div class="exp-result"><strong data-key="key_results">Results:</strong><p data-key="exp3_result">✅ HR cabinet · Mobile version · Faster document flow</p></div></div></div>
                 <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="exp4_title">Lead IT Specialist</div><div class="exp-date" data-key="exp4_date">Jun 2015 — Aug 2018</div></div><div class="exp-company" data-key="exp4_company">Non-Ferrous Metals Plant</div><div class="exp-content"><p data-key="exp4_desc">Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.</p><div class="exp-result"><strong data-key="what_i_did">Results:</strong><p data-key="exp4_result">✅ Smooth migration · Reliable reporting · Stable support</p></div></div></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- PAGE: CASE STUDIES (НОВАЯ ВКЛАДКА) -->
+<div id="page-cases" class="page">
+    <section style="padding-top: 48px;">
+        <div class="container">
+            <div class="section-title" data-key="cases_title">Case Studies — EDMS & Business Process Optimization</div>
+            <div class="sub" style="margin-bottom: 24px; color: var(--text-muted);" data-key="cases_subtitle">ERP‑integrated Document Management / Workflow Automation</div>
+            
+            <table class="cases-table">
+                <thead>
+                    <tr>
+                        <th data-key="case_col_process">Process / Document</th>
+                        <th data-key="case_col_solution">What was done (global approach)</th>
+                        <th data-key="case_col_result">Business result (KPI)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Inventory final resolution order</strong></td><td>Merged 3 approval routes → 1 universal workflow; parallel steps, mandatory attachment, Accept/Reject</td><td class="result">20–25 days → <strong>7–10 days</strong></td></tr>
+                    <tr><td><strong>Audit discrepancy (shortage/theft)</strong></td><td>Unified workflows with "Loss type"; intermediate control (day 7 for theft)</td><td class="result">24 days → <strong>14 days</strong></td></tr>
+                    <tr><td><strong>Voluntary damage compensation</strong></td><td>Deadlines set, enforced file upload, redefined task wording</td><td class="result">No "zombie" tasks</td></tr>
+                    <tr><td><strong>Purchase requisition (PR)</strong></td><td>Deadlines, parallel approval, logic by procurement type</td><td class="result">Predictable 7–10 days</td></tr>
+                    <tr><td><strong>Sole‑source procurement justification</strong></td><td>Procurement category (small/medium/large), deadlines, clear roles</td><td class="result">Full audit‑ready traceability</td></tr>
+                    <tr><td><strong>Non‑standard contract batch creation</strong></td><td>HTML manual + file‑based template + autofill from sourcing protocol</td><td class="result">Hours saved for legal & procurement</td></tr>
+                    <tr><td><strong>Lease agreement (GRC automation)</strong></td><td>Scheduled tasks for renewal, indexation, discount; auto‑review when "Lease manager" changed</td><td class="result">100% change control, zero manual follow‑up</td></tr>
+                    <tr><td><strong>Digital cash register report (ECB)</strong></td><td>New document type, history log (no duplicates), batch signing by CFO</td><td class="result"><strong>5+ hours/month</strong> saved for finance</td></tr>
+                    <tr><td><strong>Internal control procedures (ICP)</strong></td><td>Scheduled periodic execution (daily/weekly/monthly)</td><td class="result">Regular compliance without reminders</td></tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border-light); font-size: 0.85rem; color: var(--text-muted);" data-key="cases_note">
+                ✅ Platform: ERP‑integrated EDMS / BPM (functionally similar to SAP DMS, Oracle WebCenter, OpenText, SharePoint + Nintex)
             </div>
         </div>
     </section>
@@ -343,7 +425,7 @@
             <div class="section-title" data-key="testimonials_title">Recommendations</div>
             <div class="grid-2">
                 <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">IT Navigator</span><span class="testimonial-signer">Ilya Filonov, Digital Director</span></div><div class="testimonial-text" data-key="testimonial1">Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Implecs</span><span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span></div><div class="testimonial-text" data-key="testimonial2">Olga works as IT Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.</div></div>
+                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Implecs</span><span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span></div><div class="testimonial-text" data-key="testimonial2">Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.</div></div>
                 <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Ural Civil Aviation</span><span class="testimonial-signer">Vladimir Zamaraev, IT Director</span></div><div class="testimonial-text" data-key="testimonial3">Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.</div></div>
                 <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Non-Ferrous Metals Plant</span><span class="testimonial-signer">Anna Ivanova, IT Director</span></div><div class="testimonial-text" data-key="testimonial4">Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.</div></div>
             </div>
@@ -362,7 +444,7 @@
                 <tr><th data-key="skill3_cat">⚙️ Implementation & Support</th><td data-key="skill3_desc">System Configuration, UAT, End-User Training, Tech Docs</td></tr>
                 <tr><th data-key="skill4_cat">🔄 Integration Analysis</th><td data-key="skill4_desc">ERP, HRIS, EDI (Kontur Diadok)</td></tr>
                 <tr><th data-key="skill5_cat">🛠️ Tools</th><td data-key="skill5_desc">Jira, Confluence, MS Visio, BPMN, SQL, 1C Platform</td></tr>
-             </table>
+            </table>
             <div style="margin-top: 40px;"><div class="section-title" style="font-size: 1.3rem;" data-key="tools_title">🛠️ Tech stack</div><div class="tools-grid"><span class="tool-tag">Jira</span><span class="tool-tag">Confluence</span><span class="tool-tag">MS Visio</span><span class="tool-tag">BPMN 2.0</span><span class="tool-tag">SQL (basic)</span><span class="tool-tag">1C Platform</span></div></div>
             <div style="margin-top: 48px;"><div class="section-title" style="font-size: 1.3rem;" data-key="edu_title">🎓 Education</div><div class="exp-card" style="margin-bottom: 0;"><div class="exp-content"><p data-key="edu1"><strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010</p><p style="margin-top: 12px;" data-key="edu2"><strong>Additional:</strong> Document Management, 1C:Archive, 1C:ERP</p></div></div></div>
         </div>
@@ -399,24 +481,18 @@
 
 <div class="footer">
     <div class="container">
-        <p data-key="footer">© 2026 Olga Bochkareva — IT Business Analyst | 10+ years of experience</p>
+        <p data-key="footer">© 2026 Olga Bochkareva — EDMS & BPM Analyst | 10+ years of experience</p>
     </div>
 </div>
 
 <script>
-    // НАСТОЯЩИЙ РАБОЧИЙ QR-КОД
+    // QR Code generation
     (function() {
         function generateRealQRCode() {
             const qrContainer = document.getElementById('qr-code');
             if (!qrContainer) return;
-            
-            // Очищаем контейнер
             qrContainer.innerHTML = '';
-            
-            // Получаем текущий URL (без хэша)
             const currentUrl = window.location.href.split('#')[0];
-            
-            // Создаём настоящий QR-код с помощью библиотеки qrcodejs
             new QRCode(qrContainer, {
                 text: currentUrl,
                 width: 150,
@@ -426,15 +502,11 @@
                 correctLevel: QRCode.CorrectLevel.H
             });
         }
-        
-        // Запускаем после загрузки страницы
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', generateRealQRCode);
         } else {
             generateRealQRCode();
         }
-        
-        // Если URL изменится (например, при смене языка через hash), обновим QR-код
         let lastUrl = window.location.href;
         setInterval(function() {
             const newUrl = window.location.href;
@@ -447,12 +519,12 @@
 
     const translations = {
         en: {
-            hero_name: "Olga Bochkareva", hero_title: "IT Business Analyst",
+            hero_name: "Olga Bochkareva", hero_title: "EDMS & BPM Analyst",
             location: "🌏 Digital nomad (currently Asia)", work_format: "💻 Full-time · Remote",
             experience: "📅 10+ years experience", availability: "🌍 Open to new projects",
-            hero_desc: "Helping companies move from chaotic paper processes to clear, automated systems that actually work for people.",
-            btn_contact: "📩 Contact me", btn_experience: "📋 View experience",
-            stat_years: "years exp", stat_projects: "projects", stat_users: "students trained",
+            hero_desc: "I help companies transform chaotic paper processes into clear, automated workflows. Specializing in approval cycle optimization, GRC automation, and ERP‑integrated EDMS.",
+            btn_contact: "📩 Contact me", btn_cases: "📋 View case studies",
+            stat_years: "years exp", stat_projects: "projects", stat_users: "users trained",
             lang_info: "🇷🇺 Russian — Native", lang_info2: "🇬🇧 English — Intermediate (B2 in progress)",
             qr_label: "📱 Scan QR to visit my website",
             work_note: "📜 Diploma with Apostille · Open to relocation",
@@ -464,7 +536,7 @@
             ielts_note: "🎯 Improving English to B2 and preparing for the next career step.",
             contact_note: "💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.",
             exp_title: "Work experience",
-            exp1_title: "IT Consultant", exp1_date: "Jan 2026 — present", exp1_company: "Implecs · Russian Pharmacies",
+            exp1_title: "EDMS Consultant", exp1_date: "Jan 2026 — present", exp1_company: "Implecs · Russian Pharmacies",
             exp1_desc: "Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.",
             result: "Results:", exp1_result: "✅ Faster approvals · No lost documents · Fewer support requests",
             exp2_title: "Team Lead · Dev Team", exp2_date: "Nov 2022 — Jan 2026", exp2_company: "IT Navigator · Avtotrast",
@@ -476,9 +548,15 @@
             exp4_title: "Lead IT Specialist", exp4_date: "Jun 2015 — Aug 2018", exp4_company: "Non-Ferrous Metals Plant",
             exp4_desc: "Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.",
             what_i_did: "Results:", exp4_result: "✅ Smooth migration · Reliable reporting · Stable support",
+            cases_title: "Case Studies — EDMS & Business Process Optimization",
+            cases_subtitle: "ERP‑integrated Document Management / Workflow Automation",
+            case_col_process: "Process / Document",
+            case_col_solution: "What was done (global approach)",
+            case_col_result: "Business result (KPI)",
+            cases_note: "✅ Platform: ERP‑integrated EDMS / BPM (functionally similar to SAP DMS, Oracle WebCenter, OpenText, SharePoint + Nintex)",
             testimonials_title: "Recommendations",
             testimonial1: "Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.",
-            testimonial2: "Olga works as IT Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.",
+            testimonial2: "Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.",
             testimonial3: "Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.",
             testimonial4: "Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.",
             skills_title: "Core competencies",
@@ -492,14 +570,14 @@
             edu2: "<strong>Additional:</strong> Document Management, 1C:Archive, 1C:ERP",
             contact_title: "Get in touch", contact_text: "Need someone who understands business processes and can talk to both users and developers? Let's connect.",
             contact_location: "🌍 Currently in Southeast Asia · Available worldwide", contact_note: "📅 Full-time · Remote · No issues with time zones",
-            form_title: "📨 Send a message", form_name: "Name *", form_email: "Email *", form_message: "Message *", form_submit: "✉️ Send message", footer: "© 2026 Olga Bochkareva — IT Business Analyst | 10+ years of experience"
+            form_title: "📨 Send a message", form_name: "Name *", form_email: "Email *", form_message: "Message *", form_submit: "✉️ Send message", footer: "© 2026 Olga Bochkareva — EDMS & BPM Analyst | 10+ years of experience"
         },
         vi: {
-            hero_name: "Olga Bochkareva", hero_title: "Chuyên gia phân tích kinh doanh CNTT",
+            hero_name: "Olga Bochkareva", hero_title: "Chuyên gia phân tích EDMS & BPM",
             location: "🌏 Người du mục số (hiện đang ở Châu Á)", work_format: "💻 Toàn thời gian · Làm việc từ xa",
             experience: "📅 10+ năm kinh nghiệm", availability: "🌍 Sẵn sàng cho dự án mới",
-            hero_desc: "Giúp các công ty thoát khỏi sự hỗn loạn của quy trình giấy tờ để hướng tới hệ thống tự động hóa rõ ràng, thực sự hiệu quả cho con người.",
-            btn_contact: "📩 Liên hệ", btn_experience: "📋 Xem kinh nghiệm",
+            hero_desc: "Tôi giúp các công ty chuyển đổi từ quy trình giấy tờ hỗn loạn sang quy trình tự động rõ ràng. Chuyên sâu trong tối ưu hóa chu kỳ phê duyệt, tự động hóa GRC và EDMS tích hợp ERP.",
+            btn_contact: "📩 Liên hệ", btn_cases: "📋 Xem dự án",
             stat_years: "năm KN", stat_projects: "dự án", stat_users: "học viên",
             lang_info: "🇷🇺 Tiếng Nga — Bản ngữ", lang_info2: "🇬🇧 Tiếng Anh — Trung cấp (đang học B2)",
             qr_label: "📱 Quét mã QR để truy cập website của tôi",
@@ -512,7 +590,7 @@
             ielts_note: "🎯 Đang cải thiện tiếng Anh lên B2 và chuẩn bị cho bước tiếp theo trong sự nghiệp.",
             contact_note: "💬 Cần một người thực sự hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
             exp_title: "Kinh nghiệm làm việc",
-            exp1_title: "Chuyên gia tư vấn CNTT", exp1_date: "Thg1 2026 — nay", exp1_company: "Implecs · Dự án 'Hiệu thuốc Nga'",
+            exp1_title: "Chuyên gia tư vấn EDMS", exp1_date: "Thg1 2026 — nay", exp1_company: "Implecs · Dự án 'Hiệu thuốc Nga'",
             exp1_desc: "Giảm thời gian phê duyệt khiếu nại từ 14 xuống 7 ngày. Cấu hình luồng phê duyệt cho tài liệu pháp lý và hợp đồng thuê.",
             result: "Kết quả:", exp1_result: "✅ Phê duyệt nhanh hơn · Không mất tài liệu · Ít yêu cầu hỗ trợ hơn",
             exp2_title: "Trưởng nhóm phát triển", exp2_date: "Thg11 2022 — Thg1 2026", exp2_company: "IT Navigator · Dự án 'Avtotrast'",
@@ -524,9 +602,15 @@
             exp4_title: "Chuyên viên CNTT chính", exp4_date: "Thg6 2015 — Thg8 2018", exp4_company: "Nhà máy kim loại màu",
             exp4_desc: "Di chuyển không mất dữ liệu trong 4 tháng. 20+ biểu mẫu in, 15+ báo cáo SKD. Hỗ trợ 100+ người dùng.",
             what_i_did: "Kết quả:", exp4_result: "✅ Di chuyển mượt mà · Báo cáo đáng tin cậy · Hỗ trợ ổn định",
+            cases_title: "Dự án — Tối ưu hóa EDMS & Quy trình kinh doanh",
+            cases_subtitle: "Quản lý tài liệu điện tử / Tự động hóa quy trình tích hợp ERP",
+            case_col_process: "Quy trình / Tài liệu",
+            case_col_solution: "Giải pháp (phương pháp tiếp cận toàn cầu)",
+            case_col_result: "Kết quả kinh doanh (KPI)",
+            cases_note: "✅ Nền tảng: EDMS / BPM tích hợp ERP (tương tự SAP DMS, Oracle WebCenter, OpenText, SharePoint + Nintex)",
             testimonials_title: "Đề xuất",
             testimonial1: "Olga làm Trưởng nhóm. Cô ấy đã đào tạo 150+ người dùng, cấu hình quy trình phức tạp và giảm 70% yêu cầu hỗ trợ. Rất được khuyến khích.",
-            testimonial2: "Olga làm Chuyên gia tư vấn CNTT. Cô ấy đã tự động hóa khiếu nại pháp lý và hợp đồng thuê, giảm đáng kể thời gian phê duyệt. Một chuyên gia có trách nhiệm làm việc hoàn toàn từ xa.",
+            testimonial2: "Olga làm Chuyên gia tư vấn EDMS. Cô ấy đã tự động hóa khiếu nại pháp lý và hợp đồng thuê, giảm đáng kể thời gian phê duyệt. Một chuyên gia có trách nhiệm làm việc hoàn toàn từ xa.",
             testimonial3: "Olga dẫn dắt triển khai hệ thống quản lý tài liệu với vai trò Chuyên viên CNTT chính. Ra mắt thí điểm trong 2 tháng. Kỹ năng quản lý dự án tuyệt vời.",
             testimonial4: "Olga đã di chuyển thành công báo cáo tài chính mà không mất dữ liệu. Chuyên gia đáng tin cậy và chú ý đến chi tiết.",
             skills_title: "Năng lực cốt lõi",
@@ -540,7 +624,7 @@
             edu2: "<strong>Bổ sung:</strong> Quản lý tài liệu, 1C:Archive, 1C:ERP",
             contact_title: "Liên hệ", contact_text: "Cần một người hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
             contact_location: "🌍 Hiện tại ở Đông Nam Á · Có mặt trên toàn thế giới", contact_note: "📅 Toàn thời gian · Làm việc từ xa · Không vấn đề với múi giờ",
-            form_title: "📨 Gửi tin nhắn", form_name: "Tên *", form_email: "Email *", form_message: "Tin nhắn *", form_submit: "✉️ Gửi tin nhắn", footer: "© 2026 Olga Bochkareva — Chuyên gia phân tích kinh doanh CNTT | 10+ năm kinh nghiệm"
+            form_title: "📨 Gửi tin nhắn", form_name: "Tên *", form_email: "Email *", form_message: "Tin nhắn *", form_submit: "✉️ Gửi tin nhắn", footer: "© 2026 Olga Bochkareva — Chuyên gia phân tích EDMS & BPM | 10+ năm kinh nghiệm"
         }
     };
 
@@ -565,8 +649,8 @@
     }
 
     function shareOnLinkedIn() { window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank', 'width=600,height=500'); }
-    function shareOnTelegram() { window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Olga Bochkareva - IT Business Analyst. 10+ years experience.')}`, '_blank', 'width=600,height=500'); }
-    function shareOnTwitter() { window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('IT Business Analyst with 10+ years experience. Business process automation.')}`, '_blank', 'width=600,height=500'); }
+    function shareOnTelegram() { window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Olga Bochkareva - EDMS & BPM Analyst. 10+ years experience.')}`, '_blank', 'width=600,height=500'); }
+    function shareOnTwitter() { window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('EDMS & BPM Analyst with 10+ years experience. Process optimization.')}`, '_blank', 'width=600,height=500'); }
 
     const form = document.getElementById('contact-form');
     if (form) {
@@ -594,7 +678,7 @@
 
     function handleHash() {
         const hash = window.location.hash.substring(1);
-        if (hash && ['profile', 'experience', 'testimonials', 'skills', 'contact'].includes(hash)) switchPage(hash);
+        if (hash && ['profile', 'experience', 'cases', 'testimonials', 'skills', 'contact'].includes(hash)) switchPage(hash);
         else switchPage('profile');
     }
     window.addEventListener('hashchange', handleHash);
