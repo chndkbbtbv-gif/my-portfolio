@@ -11,6 +11,8 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://olga-bochkareva.com/">
     
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://formsubmit.co 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co;">
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50' y='67' text-anchor='middle' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EOB%3C/text%3E%3C/svg%3E">
     
     <meta property="og:title" content="Olga Bochkareva | EDMS & BPM Analyst">
@@ -29,12 +31,11 @@
       "jobTitle": "EDMS & BPM Analyst",
       "url": "https://olga-bochkareva.com",
       "email": "olga.bpm.edms@gmail.com",
-      "telephone": "+84961234567",
       "knowsLanguage": ["English", "Russian", "Vietnamese"]
     }
     </script>
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -52,6 +53,7 @@
             min-height: 100vh;
         }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        
         :root {
             --primary-dark: #1a1a2e;
             --primary-blue: #3b82f6;
@@ -60,8 +62,25 @@
             --text-muted: #64748b;
             --border-light: #eef2f6;
             --bg-card: white;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
         }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header { animation: slideDown 0.4s ease; }
+        .page { display: none; animation: fadeIn 0.3s ease; }
+        .page.active-page { display: block; }
+        
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -70,12 +89,11 @@
             z-index: 100;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             padding: 16px 0;
-            animation: slideDown 0.4s ease;
         }
-        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
         .logo { font-size: 1.2rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-dark), #16213e); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .logo span { font-weight: 400; font-size: 0.75rem; color: #666; }
+        
         .nav { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
         .nav-tab {
             background: transparent; border: none; padding: 8px 20px; border-radius: 100px;
@@ -84,6 +102,7 @@
         }
         .nav-tab:hover { background: rgba(0, 0, 0, 0.05); transform: translateY(-1px); }
         .nav-tab.active { background: var(--primary-dark); color: white; }
+        
         .lang-switcher { display: flex; gap: 4px; margin-left: 12px; }
         .lang-btn {
             background: rgba(0, 0, 0, 0.05); border: none; padding: 6px 12px; border-radius: 100px;
@@ -91,10 +110,7 @@
         }
         .lang-btn:hover { background: rgba(0, 0, 0, 0.1); transform: scale(1.05); }
         .lang-btn.active { background: var(--primary-dark); color: white; }
-
-        .page { display: none; animation: fadeIn 0.4s ease; }
-        .page.active-page { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
         section { padding: 64px 0; border-bottom: 1px solid var(--border-light); }
         section:last-child { border-bottom: none; }
         .section-title {
@@ -102,217 +118,97 @@
             letter-spacing: -0.02em; position: relative; display: inline-block;
         }
         .section-title::after { content: ''; position: absolute; bottom: -12px; left: 0; width: 60px; height: 3px; background: var(--primary-blue); border-radius: 3px; }
-
+        
         .hero { padding: 80px 0 60px; background: linear-gradient(135deg, #f0f4f8 0%, #e8eef4 100%); }
         .hero-grid { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
         .hero-main { flex: 2; }
         .hero-name { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; }
         .hero-title { font-size: 1.3rem; color: var(--text-light); margin-bottom: 24px; font-weight: 500; }
         .hero-meta { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 28px; font-size: 0.9rem; color: var(--text-light); }
-        .hero-meta-item { display: flex; align-items: center; gap: 8px; }
+        .hero-meta-item { display: inline-flex; align-items: center; gap: 8px; }
         .hero-desc { font-size: 1.05rem; margin-bottom: 32px; color: #2d3748; max-width: 600px; line-height: 1.6; }
-        .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1); padding: 8px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 28px; color: var(--primary-blue); }
+        .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.15); padding: 8px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 28px; color: var(--primary-blue); }
+        .ielts-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 193, 7, 0.15); padding: 6px 14px; border-radius: 100px;
+            font-size: 0.75rem; font-weight: 500; color: #b45309; cursor: help; margin-left: 12px;
+        }
         .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: var(--transition); cursor: pointer; font-family: inherit; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px;
+            border-radius: 100px; font-weight: 600; font-size: 0.9rem;
+            text-decoration: none; transition: var(--transition); cursor: pointer;
+            font-family: inherit; border: none;
+        }
         .btn-primary { background: var(--primary-dark); color: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
         .btn-primary:hover { background: #2d2d44; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
         .btn-outline { border: 1.5px solid var(--primary-dark); color: var(--primary-dark); background: transparent; }
         .btn-outline:hover { background: var(--primary-dark); color: white; transform: translateY(-2px); }
-
+        .btn-sm { padding: 8px 20px; font-size: 0.8rem; }
+        
         .hero-sidebar { flex: 1; background: var(--bg-card); border-radius: 24px; padding: 28px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06); border: 1px solid var(--border-light); }
         .profile-photo { width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
-        .contact-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; }
+        .contact-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; word-break: break-word; }
         .contact-row a { color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
         .contact-row a:hover { color: var(--primary-blue); }
-
         .work-note { background: #f8fafc; border-radius: 16px; padding: 12px; margin-top: 20px; font-size: 0.75rem; text-align: center; color: var(--text-muted); }
-
+        
         .stats-row { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
         .stat-card { background: var(--bg-card); padding: 16px 24px; border-radius: 20px; text-align: center; min-width: 110px; border: 1px solid var(--border-light); transition: var(--transition); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); }
         .stat-card:hover { transform: translateY(-4px); border-color: var(--primary-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); }
         .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); }
-
+        
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 28px; }
         
         .card {
             background: var(--bg-card);
             border-radius: 24px;
             padding: 28px;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            transition: var(--transition);
             border: 1px solid var(--border-light);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: cardFadeIn 0.5s ease forwards;
             height: 100%;
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        .card:nth-child(1) { animation-delay: 0.05s; }
-        .card:nth-child(2) { animation-delay: 0.1s; }
-        .card:nth-child(3) { animation-delay: 0.15s; }
-        .card:nth-child(4) { animation-delay: 0.2s; }
-        .card:nth-child(5) { animation-delay: 0.25s; }
-        .card:nth-child(6) { animation-delay: 0.3s; }
-        @keyframes cardFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        .card.animated {
+            animation: fadeInUp 0.5s ease forwards;
         }
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--primary-blue);
             box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
         }
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
-        }
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-        }
-        .card-badge {
-            display: inline-block;
-            background: #e8f4f0;
-            color: #0f6e4a;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            width: fit-content;
-        }
-        .card-content {
-            font-size: 0.9rem;
-            color: #2d3748;
-            line-height: 1.6;
-            flex: 1;
-        }
-        .card-footer {
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-light);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-        .tech-tag {
-            background: #f1f5f9;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.7rem;
-            color: var(--text-dark);
-        }
-
-        .testimonial-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 28px;
-            transition: var(--transition);
-            border: 1px solid var(--border-light);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-            height: 100%;
-        }
-        .testimonial-card:nth-child(1) { animation-delay: 0.05s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.15s; }
-        .testimonial-card:nth-child(4) { animation-delay: 0.2s; }
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-        }
-        .testimonial-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
+        .card-icon { font-size: 2rem; margin-bottom: 16px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+        .card-badge { display: inline-block; background: #e8f4f0; color: #0f6e4a; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; margin-bottom: 16px; width: fit-content; }
+        .card-content { font-size: 0.9rem; color: #2d3748; line-height: 1.6; flex: 1; }
+        .card-footer { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); font-size: 0.75rem; color: var(--text-muted); }
+        
+        .card.testimonial .testimonial-header {
+            display: flex; justify-content: space-between; align-items: baseline;
+            flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 12px;
             border-bottom: 1px solid var(--border-light);
         }
-        .testimonial-company {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        .testimonial-signer {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-        .testimonial-text {
-            font-size: 0.92rem;
-            color: #2d3748;
-            line-height: 1.6;
-        }
-
-        .exp-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 28px;
-            transition: var(--transition);
-            border: 1px solid var(--border-light);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            animation: cardFadeIn 0.5s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-            height: 100%;
-        }
-        .exp-card:nth-child(1) { animation-delay: 0.05s; }
-        .exp-card:nth-child(2) { animation-delay: 0.1s; }
-        .exp-card:nth-child(3) { animation-delay: 0.15s; }
-        .exp-card:nth-child(4) { animation-delay: 0.2s; }
-        .exp-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-        }
-        .exp-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-        .exp-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        .exp-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .exp-company {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--primary-blue);
-            margin-bottom: 16px;
-        }
-        .exp-content {
-            font-size: 0.95rem;
-            color: #2d3748;
-            line-height: 1.6;
-            flex: 1;
-        }
-        .exp-result {
-            background: #f0f7ff;
-            padding: 12px 16px;
-            border-radius: 16px;
-            margin-top: 16px;
-        }
-        .exp-result strong { color: var(--primary-blue); }
-
+        .card.testimonial .testimonial-company { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+        .card.testimonial .testimonial-signer { font-size: 0.7rem; color: var(--text-muted); }
+        .card.testimonial .testimonial-text { font-size: 0.92rem; color: #2d3748; line-height: 1.6; }
+        
+        .card.exp .exp-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .card.exp .exp-title { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); }
+        .card.exp .exp-date { font-size: 0.75rem; color: var(--text-muted); }
+        .card.exp .exp-company { font-size: 0.85rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .card.exp .exp-result { background: #f0f7ff; padding: 12px 16px; border-radius: 16px; margin-top: 16px; }
+        .card.exp .exp-result strong { color: var(--primary-blue); }
+        
+        .company-logo { font-size: 1rem; }
+        
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+        .tech-tag { background: #f1f5f9; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; color: var(--text-dark); }
+        
+        .quote { font-size: 1rem; font-style: italic; color: #2d3748; padding: 28px; background: #f8fafc; border-radius: 24px; margin-top: 28px; border-left: 4px solid var(--primary-blue); }
+        
         .contact-form { background: #f8fafc; border-radius: 24px; padding: 32px; margin-top: 28px; border: 1px solid var(--border-light); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: var(--text-dark); }
@@ -323,113 +219,47 @@
         .submit-btn:hover { background: #2d2d44; transform: scale(0.98); }
         .form-status { margin-top: 16px; padding: 12px; border-radius: 16px; font-size: 0.85rem; display: none; }
         .form-status.success { background: #d4edda; color: #155724; display: block; }
-
+        .form-status.error { background: #f8d7da; color: #721c24; display: block; }
+        
         .share-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
         .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; cursor: pointer; background: #f1f5f9; color: var(--text-dark); border: none; transition: var(--transition); }
         .share-btn:hover { background: var(--primary-blue); color: white; transform: translateY(-2px); }
         .share-btn.linkedin { background: #0077b5; color: white; }
         .share-btn.telegram { background: #0088cc; color: white; }
-
-        .quote { font-size: 1rem; font-style: italic; color: #2d3748; padding: 28px; background: #f8fafc; border-radius: 24px; margin-top: 28px; border-left: 4px solid var(--primary-blue); }
-        .footer { background: var(--primary-dark); text-align: center; padding: 32px 0; font-size: 0.75rem; color: #94a3b8; }
-
-        /* Dashboard styles */
+        
         .dashboard-container {
             background: #f0f4f8;
             border-radius: 24px;
             padding: 24px;
             margin-top: 20px;
         }
-        .dashboard-container h1 {
-            font-size: 1.8rem;
-            color: #0b4f6c;
-            margin-bottom: 0.25rem;
+        .dashboard-container h1 { font-size: 1.8rem; color: #0b4f6c; margin-bottom: 0.25rem; }
+        .dashboard-sub { color: #2c7da0; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem; }
+        .kpi-card-dash { background: white; border-radius: 1.2rem; padding: 1rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .kpi-number-dash { font-size: 2rem; font-weight: 800; color: #0b4f6c; }
+        .kpi-label-dash { font-size: 0.75rem; color: #4a627a; margin-top: 0.3rem; }
+        .kpi-trend-dash { font-size: 0.7rem; color: #1f6e43; margin-top: 0.3rem; }
+        .dash-card { background: white; border-radius: 1.2rem; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .dash-card-title { font-weight: 700; font-size: 1rem; color: #0b4f6c; border-left: 3px solid #2c7da0; padding-left: 0.7rem; margin-bottom: 1rem; }
+        .dash-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .dash-table th, .dash-table td { padding: 0.5rem 0.2rem; text-align: left; border-bottom: 1px solid #e2edf4; }
+        .badge-dash { background: #eaf3f9; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.7rem; display: inline-block; }
+        .progress-bar-dash { background: #e2eff7; border-radius: 20px; height: 6px; overflow: hidden; margin: 0.5rem 0; }
+        .progress-fill-dash { background: #2c7da0; height: 6px; border-radius: 20px; }
+        .row-2cols-dash { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.2rem; }
+        
+        .footer { background: var(--primary-dark); text-align: center; padding: 32px 0; font-size: 0.75rem; color: #94a3b8; }
+        
+        .tooltip { position: relative; cursor: help; }
+        .tooltip:hover::after {
+            content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+            background: #1a1a2e; color: white; padding: 4px 8px; border-radius: 8px; font-size: 0.7rem;
+            white-space: nowrap; z-index: 1000;
         }
-        .dashboard-sub {
-            color: #2c7da0;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .kpi-card-dash {
-            background: white;
-            border-radius: 1.2rem;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .kpi-number-dash {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #0b4f6c;
-        }
-        .kpi-label-dash {
-            font-size: 0.75rem;
-            color: #4a627a;
-            margin-top: 0.3rem;
-        }
-        .kpi-trend-dash {
-            font-size: 0.7rem;
-            color: #1f6e43;
-            margin-top: 0.3rem;
-        }
-        .dash-card {
-            background: white;
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .dash-card-title {
-            font-weight: 700;
-            font-size: 1rem;
-            color: #0b4f6c;
-            border-left: 3px solid #2c7da0;
-            padding-left: 0.7rem;
-            margin-bottom: 1rem;
-        }
-        .dash-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-        }
-        .dash-table th, .dash-table td {
-            padding: 0.5rem 0.2rem;
-            text-align: left;
-            border-bottom: 1px solid #e2edf4;
-        }
-        .badge-dash {
-            background: #eaf3f9;
-            padding: 0.2rem 0.6rem;
-            border-radius: 1rem;
-            font-size: 0.7rem;
-            display: inline-block;
-        }
-        .progress-bar-dash {
-            background: #e2eff7;
-            border-radius: 20px;
-            height: 6px;
-            overflow: hidden;
-            margin: 0.5rem 0;
-        }
-        .progress-fill-dash {
-            background: #2c7da0;
-            height: 6px;
-            border-radius: 20px;
-        }
-        .row-2cols-dash {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.2rem;
-        }
-
+        
         @media (max-width: 800px) {
-            .hero-name { font-size: 2.2rem; }
+            .hero-name { font-size: 2.2rem; word-break: break-word; }
             .section-title { font-size: 1.5rem; }
             .container { padding: 0 20px; }
             .hero-grid { flex-direction: column; }
@@ -439,6 +269,16 @@
             .nav-tab { padding: 8px 16px; font-size: 0.8rem; min-height: 44px; }
             .row-2cols-dash { grid-template-columns: 1fr; }
         }
+        
+        @media (max-width: 360px) {
+            .hero-name { font-size: 1.8rem; }
+            .container { padding: 0 16px; }
+            .hero-meta { gap: 12px; }
+            .hero-meta-item { font-size: 0.8rem; }
+            .btn { padding: 10px 20px; font-size: 0.85rem; }
+            .card { padding: 20px; }
+            .contact-form { padding: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -446,23 +286,23 @@
 <div class="header">
     <div class="container header-inner">
         <div class="logo">Olga Bochkareva <span>| EDMS & BPM Analyst</span></div>
-        <div class="nav">
-            <button class="nav-tab active" data-page="about">👤 About</button>
-            <button class="nav-tab" data-page="work">💼 Work</button>
-            <button class="nav-tab" data-page="dashboard">📈 Dashboard</button>
-            <button class="nav-tab" data-page="references">⭐ References</button>
-            <button class="nav-tab" data-page="expertise">⚡ Expertise</button>
-            <button class="nav-tab" data-page="connect">📬 Connect</button>
+        <div class="nav" role="tablist">
+            <button class="nav-tab active" data-page="about" role="tab" aria-selected="true" aria-controls="page-about">👤 About</button>
+            <button class="nav-tab" data-page="work" role="tab" aria-selected="false" aria-controls="page-work">💼 Work</button>
+            <button class="nav-tab" data-page="dashboard" role="tab" aria-selected="false" aria-controls="page-dashboard">📈 Dashboard</button>
+            <button class="nav-tab" data-page="references" role="tab" aria-selected="false" aria-controls="page-references">⭐ References</button>
+            <button class="nav-tab" data-page="expertise" role="tab" aria-selected="false" aria-controls="page-expertise">⚡ Expertise</button>
+            <button class="nav-tab" data-page="connect" role="tab" aria-selected="false" aria-controls="page-connect">📬 Connect</button>
             <div class="lang-switcher">
-                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-                <button class="lang-btn" data-lang="vi">🇻🇳 VI</button>
+                <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳 VI</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- PAGE: ABOUT -->
-<div id="page-about" class="page active-page">
+<div id="page-about" class="page active-page" role="tabpanel" aria-labelledby="tab-about">
     <div class="hero">
         <div class="container hero-grid">
             <div class="hero-main">
@@ -473,13 +313,17 @@
                     <div class="hero-meta-item"><span data-key="work_format">💻 Full-time · Remote</span></div>
                     <div class="hero-meta-item"><span data-key="experience">📅 10+ years experience</span></div>
                 </div>
-                <div class="availability-badge" data-key="availability">🌍 Open to new projects</div>
+                <div>
+                    <span class="availability-badge" data-key="availability">🌍 Open to relocation · Worldwide</span>
+                    <span class="ielts-badge tooltip" data-tip="Exam planned for Q3 2026" data-key="ielts_badge">🎯 IELTS in progress (2026)</span>
+                </div>
                 <div class="hero-desc" data-key="hero_desc">
                     I help companies transform chaotic paper processes into clear, automated workflows. Specializing in approval cycle optimization, GRC automation, and ERP‑integrated EDMS.
                 </div>
                 <div class="btn-group">
-                    <a href="#" class="btn btn-primary" data-page-link="connect"><span data-key="btn_contact">📩 Contact me</span></a>
-                    <a href="#" class="btn btn-outline" data-page-link="work"><span data-key="btn_projects">💼 View experience</span></a>
+                    <a href="javascript:void(0)" class="btn btn-primary" data-page-link="connect"><span data-key="btn_contact">📩 Contact me</span></a>
+                    <a href="javascript:void(0)" class="btn btn-outline" data-page-link="work"><span data-key="btn_projects">💼 View experience</span></a>
+                    <a href="#" class="btn btn-outline btn-sm" id="download-cv"><span data-key="btn_cv">📄 Download CV (PDF)</span></a>
                 </div>
                 <div class="stats-row">
                     <div class="stat-card"><div class="stat-number">10+</div><div data-key="stat_years">years exp</div></div>
@@ -490,23 +334,20 @@
             <div class="hero-sidebar">
                 <div class="profile-photo">OB</div>
                 <div class="contact-row">📧 <a href="mailto:olga.bpm.edms@gmail.com">olga.bpm.edms@gmail.com</a></div>
-                <div class="contact-row">📱 <a href="tel:+84961234567">+84 96 123 45 67</a></div>
                 <div class="contact-row"><span data-key="lang_info">🇷🇺 Russian — Native</span></div>
-                <div class="contact-row"><span data-key="lang_info2">🇬🇧 English — Preparing for English language certification</span></div>
+                <div class="contact-row"><span data-key="lang_info2">🇬🇧 English — IELTS in progress</span></div>
                 <div class="contact-row">🔗 <a href="https://linkedin.com/in/olga-bochkareva" target="_blank" rel="noopener noreferrer">linkedin.com/in/olga-bochkareva</a></div>
                 <div class="contact-row">💬 <a href="https://t.me/olga_bochkareva" target="_blank" rel="noopener noreferrer">Telegram</a></div>
-                <div class="contact-row">📱 <a href="https://www.instagram.com/olga.development_" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-                <div class="contact-row">🧵 <a href="https://www.threads.com/@olga.development_" target="_blank" rel="noopener noreferrer">Threads</a></div>
-                
-                <div class="work-note" data-key="work_note">📜 Diploma with Apostille · Open to relocation</div>
+                <div class="contact-row">💻 <a href="https://github.com/olgabochkareva" target="_blank" rel="noopener noreferrer">github.com/olgabochkareva</a></div>
+                <div class="work-note" data-key="work_note">📜 Diploma with Apostille · Open to relocation · Work authorization: Russia, Vietnam, remote globally</div>
             </div>
         </div>
     </div>
     <section>
         <div class="container">
             <div class="section-title" data-key="about_title">About me</div>
-            <div class="exp-card" style="margin-bottom: 0;">
-                <div class="exp-content">
+            <div class="card exp" style="margin-bottom: 0;">
+                <div class="card-content">
                     <p data-key="about_text1">I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.</p>
                     <p style="margin-top: 16px;" data-key="about_text2">Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.</p>
                 </div>
@@ -514,7 +355,6 @@
             <div class="quote" data-key="quote">I'm not one of those people who just waits for tasks. I ask questions, find inefficiencies, and fix them. The best automation is the one you don't notice — it just works.</div>
             <div style="margin-top: 32px;">
                 <p style="font-size: 0.9rem; color: var(--text-muted);" data-key="location_note">📍 Currently traveling across Asia, working remotely. No issues with time zones.</p>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;" data-key="ielts_note">🎯 Preparing for English language certification</p>
                 <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;" data-key="contact_note">💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.</p>
             </div>
         </div>
@@ -522,136 +362,136 @@
 </div>
 
 <!-- PAGE: WORK -->
-<div id="page-work" class="page">
+<div id="page-work" class="page" role="tabpanel" aria-labelledby="tab-work">
     <section style="padding-top: 48px;">
         <div class="container">
             <div class="section-title" data-key="work_title">Work experience</div>
             <div class="grid-2">
-                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="work1_title">EDMS Consultant</div><div class="exp-date" data-key="work1_date">Jan 2026 — present</div></div><div class="exp-company" data-key="work1_company">Implecs · Russian Pharmacies</div><div class="exp-content"><p data-key="work1_desc">Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p><div class="exp-result"><strong data-key="result">Results:</strong><p data-key="work1_result">✅ Faster approvals · No lost documents · Fewer support requests</p></div></div></div>
-                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="work2_title">Team Lead · Dev Team</div><div class="exp-date" data-key="work2_date">Nov 2022 — Jan 2026</div></div><div class="exp-company" data-key="work2_company">IT Navigator · Avtotrast</div><div class="exp-content"><p data-key="work2_desc">Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.</p><div class="exp-result"><strong data-key="proud">Results:</strong><p data-key="work2_result">✅ Transparent approvals · No double data entry · Reduced support load</p></div></div></div>
-                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="work3_title">Lead IT Specialist</div><div class="exp-date" data-key="work3_date">Oct 2018 — Feb 2022</div></div><div class="exp-company" data-key="work3_company">Ural Civil Aviation Plant</div><div class="exp-content"><p data-key="work3_desc">Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.</p><div class="exp-result"><strong data-key="key_results">Results:</strong><p data-key="work3_result">✅ HR cabinet · Mobile version · Faster document flow</p></div></div></div>
-                <div class="exp-card"><div class="exp-header"><div class="exp-title" data-key="work4_title">Lead IT Specialist</div><div class="exp-date" data-key="work4_date">Jun 2015 — Aug 2018</div></div><div class="exp-company" data-key="work4_company">Non-Ferrous Metals Plant</div><div class="exp-content"><p data-key="work4_desc">Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.</p><div class="exp-result"><strong data-key="what_i_did">Results:</strong><p data-key="work4_result">✅ Smooth migration · Reliable reporting · Stable support</p></div></div></div>
+                <div class="card exp"><div class="exp-header"><div class="exp-title" data-key="work1_title">EDMS Consultant</div><div class="exp-date" data-key="work1_date">Jan 2026 — present</div></div><div class="exp-company"><span class="company-logo">🏢</span> <span data-key="work1_company">Implecs · Russian Pharmacies</span></div><div class="card-content"><p data-key="work1_desc">Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.</p><div class="exp-result"><strong data-key="result">Results:</strong><p data-key="work1_result">✅ Faster approvals · No lost documents · Fewer support requests</p></div></div></div>
+                <div class="card exp"><div class="exp-header"><div class="exp-title" data-key="work2_title">Team Lead · Dev Team</div><div class="exp-date" data-key="work2_date">Nov 2022 — Jan 2026</div></div><div class="exp-company"><span class="company-logo">🏢</span> <span data-key="work2_company">IT Navigator · Avtotrast</span></div><div class="card-content"><p data-key="work2_desc">Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.</p><div class="exp-result"><strong data-key="proud">Results:</strong><p data-key="work2_result">✅ Transparent approvals · No double data entry · Reduced support load</p></div></div></div>
+                <div class="card exp"><div class="exp-header"><div class="exp-title" data-key="work3_title">Lead IT Specialist</div><div class="exp-date" data-key="work3_date">Oct 2018 — Feb 2022</div></div><div class="exp-company"><span class="company-logo">🏢</span> <span data-key="work3_company">Ural Civil Aviation Plant</span></div><div class="card-content"><p data-key="work3_desc">Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.</p><div class="exp-result"><strong data-key="key_results">Results:</strong><p data-key="work3_result">✅ HR cabinet · Mobile version · Faster document flow</p></div></div></div>
+                <div class="card exp"><div class="exp-header"><div class="exp-title" data-key="work4_title">Lead IT Specialist</div><div class="exp-date" data-key="work4_date">Jun 2015 — Aug 2018</div></div><div class="exp-company"><span class="company-logo">🏢</span> <span data-key="work4_company">Non-Ferrous Metals Plant</span></div><div class="card-content"><p data-key="work4_desc">Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.</p><div class="exp-result"><strong data-key="what_i_did">Results:</strong><p data-key="work4_result">✅ Smooth migration · Reliable reporting · Stable support</p></div></div></div>
             </div>
         </div>
     </section>
 </div>
 
 <!-- PAGE: DASHBOARD -->
-<div id="page-dashboard" class="page">
+<div id="page-dashboard" class="page" role="tabpanel" aria-labelledby="tab-dashboard">
     <section style="padding-top: 48px;">
         <div class="container">
             <div class="dashboard-container">
-                <h1>📊 EDMS / BPM optimization dashboard</h1>
-                <div class="dashboard-sub">Olga Bochkareva — results</div>
-
+                <h1 data-key="dashboard_title">📊 EDMS / BPM optimization dashboard</h1>
+                <div class="dashboard-sub" data-key="dashboard_sub">Olga Bochkareva — results</div>
+                
                 <div class="kpi-grid">
-                    <div class="kpi-card-dash"><div class="kpi-number-dash">67</div><div class="kpi-label-dash">document types processed</div><div class="kpi-trend-dash">61 have global equivalents</div></div>
-                    <div class="kpi-card-dash"><div class="kpi-number-dash">30–50%</div><div class="kpi-label-dash">cycle time reduction</div><div class="kpi-trend-dash">up to 60% in inventory final resolution</div></div>
-                    <div class="kpi-card-dash"><div class="kpi-number-dash">10+</div><div class="kpi-label-dash">workflows merged / redesigned</div><div class="kpi-trend-dash">3→1, sequential→parallel</div></div>
-                    <div class="kpi-card-dash"><div class="kpi-number-dash">5+ h/month</div><div class="kpi-label-dash">saved for accounting (ECB)</div><div class="kpi-trend-dash">digital cash register batch signing</div></div>
-                    <div class="kpi-card-dash"><div class="kpi-number-dash">90→3 days</div><div class="kpi-label-dash">purchase requisition (30+ approvers)</div><div class="kpi-trend-dash">parallel approval</div></div>
+                    <div class="kpi-card-dash"><div class="kpi-number-dash">67</div><div class="kpi-label-dash" data-key="kpi_doc_types">document types processed</div><div class="kpi-trend-dash" data-key="kpi_doc_types_trend">61 have global equivalents</div></div>
+                    <div class="kpi-card-dash"><div class="kpi-number-dash">30–50%</div><div class="kpi-label-dash" data-key="kpi_cycle_time">cycle time reduction</div><div class="kpi-trend-dash" data-key="kpi_cycle_time_trend">up to 60% in inventory final resolution</div></div>
+                    <div class="kpi-card-dash"><div class="kpi-number-dash">10+</div><div class="kpi-label-dash" data-key="kpi_workflows">workflows merged / redesigned</div><div class="kpi-trend-dash" data-key="kpi_workflows_trend">3→1, sequential→parallel</div></div>
+                    <div class="kpi-card-dash"><div class="kpi-number-dash">5+ h/month</div><div class="kpi-label-dash" data-key="kpi_time_saved">saved for accounting (ECB)</div><div class="kpi-trend-dash" data-key="kpi_time_saved_trend">digital cash register batch signing</div></div>
+                    <div class="kpi-card-dash"><div class="kpi-number-dash">90→3 days</div><div class="kpi-label-dash" data-key="kpi_pr_time">purchase requisition (30+ approvers)</div><div class="kpi-trend-dash" data-key="kpi_pr_time_trend">parallel approval</div></div>
                 </div>
-
+                
                 <div class="row-2cols-dash">
                     <div class="dash-card">
-                        <div class="dash-card-title">📁 Documents by category (67 total)</div>
+                        <div class="dash-card-title" data-key="documents_by_category">📁 Documents by category (67 total)</div>
                         <table class="dash-table">
-                            <tr><th>Category</th><th>Count</th><th>%</th></tr>
-                            <tr><td>Inventory & stocktake</td><td>21</td><td>31%</td></tr>
-                            <tr><td>Contracts & amendments</td><td>10</td><td>15%</td></tr>
-                            <tr><td>Regulatory / methodological</td><td>8</td><td>12%</td></tr>
-                            <tr><td>Purchasing & memos</td><td>7</td><td>10%</td></tr>
-                            <tr><td>GRC / internal control</td><td>6</td><td>9%</td></tr>
-                            <tr><td>Investment, M&A, project</td><td>6</td><td>9%</td></tr>
-                            <tr><td>Accounting, cash, EDI</td><td>4</td><td>6%</td></tr>
-                            <tr><td>HR & personnel</td><td>3</td><td>5%</td></tr>
+                            <tr><th data-key="category_header">Category</th><th data-key="count_header">Count</th><th data-key="percent_header">%</th></tr>
+                            <tr><td data-key="cat_inventory">Inventory & stocktake</td><td>21</td><td>31%</td></tr>
+                            <tr><td data-key="cat_contracts">Contracts & amendments</td><td>10</td><td>15%</td></tr>
+                            <tr><td data-key="cat_regulatory">Regulatory / methodological</td><td>8</td><td>12%</td></tr>
+                            <tr><td data-key="cat_purchasing">Purchasing & memos</td><td>7</td><td>10%</td></tr>
+                            <tr><td data-key="cat_grc">GRC / internal control</td><td>6</td><td>9%</td></tr>
+                            <tr><td data-key="cat_investment">Investment, M&A, project</td><td>6</td><td>9%</td></tr>
+                            <tr><td data-key="cat_accounting">Accounting, cash, EDI</td><td>4</td><td>6%</td></tr>
+                            <tr><td data-key="cat_hr">HR & personnel</td><td>3</td><td>5%</td></tr>
                         </table>
                         <div class="progress-bar-dash"><div class="progress-fill-dash" style="width:31%"></div></div>
                     </div>
                     <div class="dash-card">
-                        <div class="dash-card-title">⚙️ Work types (most frequent)</div>
+                        <div class="dash-card-title" data-key="work_types_title">⚙️ Work types (most frequent)</div>
                         <table class="dash-table">
-                            <tr><th>Work type</th><th>Documents affected</th></tr>
-                            <tr><td>Role‑based access control (RBAC)</td><td>18</td></tr>
-                            <tr><td>GRC automation (scheduled/event tasks)</td><td>10</td></tr>
-                            <tr><td>Parallel approval setup</td><td>7</td></tr>
-                            <tr><td>Deadline enforcement & auto‑escalation</td><td>8</td></tr>
-                            <tr><td>Batch creation / batch signing</td><td>7</td></tr>
+                            <tr><th data-key="work_type_header">Work type</th><th data-key="docs_affected_header">Documents affected</th></tr>
+                            <tr><td data-key="work_rbac">Role‑based access control (RBAC)</td><td>18</td></tr>
+                            <tr><td data-key="work_grc">GRC automation (scheduled/event tasks)</td><td>10</td></tr>
+                            <tr><td data-key="work_parallel">Parallel approval setup</td><td>7</td></tr>
+                            <tr><td data-key="work_deadline">Deadline enforcement & auto‑escalation</td><td>8</td></tr>
+                            <tr><td data-key="work_batch">Batch creation / batch signing</td><td>7</td></tr>
                         </table>
                     </div>
                 </div>
-
+                
                 <div class="row-2cols-dash">
                     <div class="dash-card">
-                        <div class="dash-card-title">🏆 Top 5 cases by efficiency gain</div>
+                        <div class="dash-card-title" data-key="efficiency_title">🏆 Top 5 cases by efficiency gain</div>
                         <table class="dash-table">
-                            <tr><th>Document / process</th><th>Before</th><th>After</th><th>Improvement</th></tr>
-                            <tr><td>Inventory final resolution order</td><td>20–25 days</td><td>7–10 days</td><td>⬇️ 60%</td></tr>
-                            <tr><td>Purchase requisition (30+ approvers)</td><td>90 days</td><td>3 days</td><td>⬇️ 97%</td></tr>
-                            <tr><td>Shortage liability (theft workflow)</td><td>24 days</td><td>14 days</td><td>⬇️ 42%</td></tr>
-                            <tr><td>Employee clearance checklist</td><td>47 days</td><td>7–10 days</td><td>⬇️ 80%</td></tr>
-                            <tr><td>Reconciliation statement</td><td>32 days</td><td>10 days</td><td>⬇️ 69%</td></tr>
+                            <tr><th data-key="process_name_header">Document / process</th><th data-key="before_header">Before</th><th data-key="after_header">After</th><th data-key="improvement_header">Improvement</th></tr>
+                            <tr><td data-key="case_inventory">Inventory final resolution order</td><td>20–25 days</td><td>7–10 days</td><td>⬇️ 60%</td></tr>
+                            <tr><td data-key="case_purchase">Purchase requisition (30+ approvers)</td><td>90 days</td><td>3 days</td><td>⬇️ 97%</td></tr>
+                            <tr><td data-key="case_theft">Shortage liability (theft workflow)</td><td>24 days</td><td>14 days</td><td>⬇️ 42%</td></tr>
+                            <tr><td data-key="case_clearance">Employee clearance checklist</td><td>47 days</td><td>7–10 days</td><td>⬇️ 80%</td></tr>
+                            <tr><td data-key="case_reconciliation">Reconciliation statement</td><td>32 days</td><td>10 days</td><td>⬇️ 69%</td></tr>
                         </table>
                     </div>
                     <div class="dash-card">
-                        <div class="dash-card-title">🌍 Global platforms (functional equivalents)</div>
+                        <div class="dash-card-title" data-key="global_platforms_title">🌍 Global platforms (functional equivalents)</div>
                         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0;">
                             <span class="badge-dash">SAP DMS</span> <span class="badge-dash">Oracle WebCenter</span> <span class="badge-dash">OpenText</span>
                             <span class="badge-dash">SharePoint + Nintex</span> <span class="badge-dash">Salesforce CLM</span> <span class="badge-dash">SAP Ariba</span>
                             <span class="badge-dash">SAP HCM</span> <span class="badge-dash">SAP RE‑FX</span> <span class="badge-dash">SAP Treasury</span>
                             <span class="badge-dash">ISO 9001 / 15489 / 27001 / 37001</span>
                         </div>
-                        <div class="dash-card-title" style="margin-top: 1rem;">📌 Local‑specific (only RF)</div>
-                        <div style="font-size: 0.8rem; color: #4a627a;">6 document types (inventory liability distribution, pharmacy assortment specification, cash discipline reports). Explained as "local statutory compliance forms".</div>
+                        <div class="dash-card-title" style="margin-top: 1rem;" data-key="local_specific_title">📌 Local‑specific (only RF)</div>
+                        <div style="font-size: 0.8rem; color: #4a627a;" data-key="local_specific_text">6 document types (inventory liability distribution, pharmacy assortment specification, cash discipline reports). Explained as "local statutory compliance forms".</div>
                     </div>
                 </div>
-
+                
                 <div class="row-2cols-dash">
                     <div class="dash-card">
-                        <div class="dash-card-title">📈 Efficiency by process group</div>
+                        <div class="dash-card-title" data-key="efficiency_group_title">📈 Efficiency by process group</div>
                         <table class="dash-table">
-                            <tr><th>Process group</th><th>avg cycle before</th><th>avg cycle after</th></tr>
-                            <tr><td>Inventory workflows</td><td>18–25 days</td><td>7–14 days</td></tr>
-                            <tr><td>Procurement (PR + sole‑source)</td><td>not controlled (up to 30d)</td><td>7–10 days</td></tr>
-                            <tr><td>GRC tasks (scheduled)</td><td>manual / none</td><td>100% automated</td></tr>
-                            <tr><td>Contract batch creation</td><td>hours per legal entity</td><td>minutes (one‑click batch)</td></tr>
+                            <tr><th data-key="process_group_header">Process group</th><th>avg cycle before</th><th>avg cycle after</th></tr>
+                            <tr><td data-key="process_inventory">Inventory workflows</td><td>18–25 days</td><td>7–14 days</td></tr>
+                            <tr><td data-key="process_procurement">Procurement (PR + sole‑source)</td><td>not controlled (up to 30d)</td><td>7–10 days</td></tr>
+                            <tr><td data-key="process_grc">GRC tasks (scheduled)</td><td>manual / none</td><td>100% automated</td></tr>
+                            <tr><td data-key="process_contract">Contract batch creation</td><td>hours per legal entity</td><td>minutes (one‑click batch)</td></tr>
                         </table>
                     </div>
                     <div class="dash-card">
-                        <div class="dash-card-title">✅ Business value summary</div>
+                        <div class="dash-card-title" data-key="business_value_title">✅ Business value summary</div>
                         <ul style="margin-left: 1.2rem; font-size: 0.8rem; line-height: 1.5;">
-                            <li>✔ Approval time reduced by 30–60% for 10+ core workflows</li>
-                            <li>✔ GRC automation eliminated manual tracking (renewals, indexation, discounts)</li>
-                            <li>✔ Batch signing: 5+ hours/month saved for CFO / accounting</li>
-                            <li>✔ ISO 9001‑compliant acknowledgment (mandatory file attachments)</li>
-                            <li>✔ 61 document types now compatible with global EDMS/BPM standards</li>
-                            <li>✔ Zero "zombie" tasks – every deadline is enforced and escalated</li>
+                            <li data-key="value_1">✔ Approval time reduced by 30–60% for 10+ core workflows</li>
+                            <li data-key="value_2">✔ GRC automation eliminated manual tracking (renewals, indexation, discounts)</li>
+                            <li data-key="value_3">✔ Batch signing: 5+ hours/month saved for CFO / accounting</li>
+                            <li data-key="value_4">✔ ISO 9001‑compliant acknowledgment (mandatory file attachments)</li>
+                            <li data-key="value_5">✔ 61 document types now compatible with global EDMS/BPM standards</li>
+                            <li data-key="value_6">✔ Zero "zombie" tasks – every deadline is enforced and escalated</li>
                         </ul>
                     </div>
                 </div>
-                <div style="font-size: 0.7rem; color: #6c8dae; text-align: center; margin-top: 1rem;">Based on real projects · 1С:EDMS · Workflow automation · GRC · Batch signing · RBAC</div>
+                <div style="font-size: 0.7rem; color: #6c8dae; text-align: center; margin-top: 1rem;" data-key="dashboard_note">Based on real projects · 1С:EDMS · Workflow automation · GRC · Batch signing · RBAC</div>
             </div>
         </div>
     </section>
 </div>
 
 <!-- PAGE: REFERENCES -->
-<div id="page-references" class="page">
+<div id="page-references" class="page" role="tabpanel" aria-labelledby="tab-references">
     <section style="padding-top: 48px;">
         <div class="container">
             <div class="section-title" data-key="references_title">References</div>
             <div class="grid-2">
-                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">IT Navigator</span><span class="testimonial-signer">Ilya Filonov, Digital Director</span></div><div class="testimonial-text" data-key="ref1">Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Implecs</span><span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span></div><div class="testimonial-text" data-key="ref2">Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Ural Civil Aviation</span><span class="testimonial-signer">Vladimir Zamaraev, IT Director</span></div><div class="testimonial-text" data-key="ref3">Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.</div></div>
-                <div class="testimonial-card"><div class="testimonial-header"><span class="testimonial-company">Non-Ferrous Metals Plant</span><span class="testimonial-signer">Anna Ivanova, IT Director</span></div><div class="testimonial-text" data-key="ref4">Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.</div></div>
+                <div class="card testimonial"><div class="testimonial-header"><span class="testimonial-company">IT Navigator</span><span class="testimonial-signer">Ilya Filonov, Digital Director</span></div><div class="testimonial-text" data-key="ref1">Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.</div></div>
+                <div class="card testimonial"><div class="testimonial-header"><span class="testimonial-company">Implecs</span><span class="testimonial-signer">Dmitry Zelenschuk, IT Project Lead</span></div><div class="testimonial-text" data-key="ref2">Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.</div></div>
+                <div class="card testimonial"><div class="testimonial-header"><span class="testimonial-company">Ural Civil Aviation</span><span class="testimonial-signer">Vladimir Zamaraev, IT Director</span></div><div class="testimonial-text" data-key="ref3">Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.</div></div>
+                <div class="card testimonial"><div class="testimonial-header"><span class="testimonial-company">Non-Ferrous Metals Plant</span><span class="testimonial-signer">Anna Ivanova, IT Director</span></div><div class="testimonial-text" data-key="ref4">Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.</div></div>
             </div>
         </div>
     </section>
 </div>
 
 <!-- PAGE: EXPERTISE -->
-<div id="page-expertise" class="page">
+<div id="page-expertise" class="page" role="tabpanel" aria-labelledby="tab-expertise">
     <section style="padding-top: 48px;">
         <div class="container">
             <div class="section-title" data-key="expertise_title">Core expertise</div>
@@ -673,28 +513,36 @@
 </div>
 
 <!-- PAGE: CONNECT -->
-<div id="page-connect" class="page">
+<div id="page-connect" class="page" role="tabpanel" aria-labelledby="tab-connect">
     <section style="padding-top: 48px;">
         <div class="container">
             <div class="section-title" data-key="connect_title">Let's connect</div>
-            <div class="exp-card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
                 <p style="margin-bottom: 24px;" data-key="connect_text">Need someone who understands business processes and can talk to both users and developers? Let's connect.</p>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px;">
                     <a href="mailto:olga.bpm.edms@gmail.com" class="btn btn-primary">📧 olga.bpm.edms@gmail.com</a>
-                    <a href="tel:+84961234567" class="btn btn-outline">📞 +84 96 123 45 67</a>
+                    <a href="javascript:void(0)" class="btn btn-outline" id="download-cv-connect" data-key="btn_cv">📄 Download CV (PDF)</a>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
                     <a href="https://linkedin.com/in/olga-bochkareva" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 LinkedIn</a>
                     <a href="https://t.me/olga_bochkareva" target="_blank" rel="noopener noreferrer" class="btn btn-outline">💬 Telegram</a>
+                    <a href="https://github.com/olgabochkareva" target="_blank" rel="noopener noreferrer" class="btn btn-outline">💻 GitHub</a>
                 </div>
                 <div class="contact-form"><h3 style="font-size: 1.1rem; margin-bottom: 20px;" data-key="form_title">📨 Send a message</h3>
-                <form id="contact-form"><div class="form-group"><label data-key="form_name">Name *</label><input type="text" id="name" required placeholder="Your name"></div>
-                <div class="form-group"><label data-key="form_email">Email *</label><input type="email" id="email" required placeholder="your@email.com"></div>
-                <div class="form-group"><label data-key="form_message">Message *</label><textarea id="message" required placeholder="Tell me about your project..."></textarea></div>
-                <button type="submit" class="submit-btn" data-key="form_submit">✉️ Send message</button><div id="form-status" class="form-status"></div></form></div>
+                <form id="contact-form" action="https://formsubmit.co/olga.bpm.edms@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New message from portfolio site">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-group"><label data-key="form_name">Name *</label><input type="text" id="name" name="name" required placeholder="Your name"></div>
+                    <div class="form-group"><label data-key="form_email">Email *</label><input type="email" id="email" name="email" required placeholder="your@email.com"></div>
+                    <div class="form-group"><label data-key="form_message">Message *</label><textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea></div>
+                    <button type="submit" class="submit-btn" data-key="form_submit">✉️ Send message</button>
+                    <div id="form-status" class="form-status"></div>
+                </form></div>
                 <div class="share-buttons"><button class="share-btn linkedin" onclick="shareOnLinkedIn()">🔗 LinkedIn</button><button class="share-btn telegram" onclick="shareOnTelegram()">💬 Telegram</button></div>
                 <p style="margin-top: 28px;" data-key="connect_location">🌍 Currently in Southeast Asia · Available worldwide</p>
-                <p style="margin-top: 10px; font-size: 0.75rem; color: var(--text-muted);" data-key="connect_note">📅 Full-time · Remote · No issues with time zones</p>
+                <p style="margin-top: 10px; font-size: 0.75rem; color: var(--text-muted);" data-key="connect_note">📅 Full-time · Remote · Work authorization: Russia, Vietnam, global remote</p>
             </div>
         </div>
     </section>
@@ -707,37 +555,360 @@
 </div>
 
 <script>
-    const translations = { en: {
-        hero_name:"Olga Bochkareva",hero_title:"EDMS & BPM Analyst",location:"🌏 Digital nomad (currently Asia)",work_format:"💻 Full-time · Remote",experience:"📅 10+ years experience",availability:"🌍 Open to new projects",hero_desc:"I help companies transform chaotic paper processes into clear, automated workflows. Specializing in approval cycle optimization, GRC automation, and ERP‑integrated EDMS.",btn_contact:"📩 Contact me",btn_projects:"💼 View experience",stat_years:"years exp",stat_projects:"projects",stat_users:"users trained",lang_info:"🇷🇺 Russian — Native",lang_info2:"🇬🇧 English — Preparing for English language certification",work_note:"📜 Diploma with Apostille · Open to relocation",about_title:"About me",about_text1:"I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.",about_text2:"Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.",quote:"I'm not one of those people who just waits for tasks. I ask questions, find inefficiencies, and fix them. The best automation is the one you don't notice — it just works.",location_note:"📍 Currently traveling across Asia, working remotely. No issues with time zones.",ielts_note:"🎯 Preparing for English language certification",contact_note:"💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.",work_title:"Work experience",work1_title:"EDMS Consultant",work1_date:"Jan 2026 — present",work1_company:"Implecs · Russian Pharmacies",work1_desc:"Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.",result:"Results:",work1_result:"✅ Faster approvals · No lost documents · Fewer support requests",work2_title:"Team Lead · Dev Team",work2_date:"Nov 2022 — Jan 2026",work2_company:"IT Navigator · Avtotrast",work2_desc:"Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.",proud:"Results:",work2_result:"✅ Transparent approvals · No double data entry · Reduced support load",work3_title:"Lead IT Specialist",work3_date:"Oct 2018 — Feb 2022",work3_company:"Ural Civil Aviation Plant",work3_desc:"Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.",key_results:"Results:",work3_result:"✅ HR cabinet · Mobile version · Faster document flow",work4_title:"Lead IT Specialist",work4_date:"Jun 2015 — Aug 2018",work4_company:"Non-Ferrous Metals Plant",work4_desc:"Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.",what_i_did:"Results:",work4_result:"✅ Smooth migration · Reliable reporting · Stable support",references_title:"References",ref1:"Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.",ref2:"Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.",ref3:"Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.",ref4:"Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.",expertise_title:"Core expertise",exp1_title:"Process Analysis",exp1_desc:"BPMN 2.0, Gap Analysis, Workflow Optimization, Process Mapping (MS Visio). I identify bottlenecks and redesign processes for maximum efficiency.",exp2_title:"Requirements Management",exp2_desc:"BRD, SRS, User Stories, Use Cases. I write technical specifications that developers actually understand.",exp3_title:"Implementation & Support",exp3_desc:"System Configuration, UAT, End-User Training, Technical Documentation. 1000+ users trained successfully.",exp4_title:"Integration Analysis",exp4_desc:"ERP, HRIS, EDI (Kontur Diadok). I make different systems communicate without double data entry.",tools_title:"🛠️ Tools & technologies",edu_title:"Education",edu1:"<strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010",edu2:"Additional: Document Management, 1C:Archive, 1C:ERP",connect_title:"Let's connect",connect_text:"Need someone who understands business processes and can talk to both users and developers? Let's connect.",connect_location:"🌍 Currently in Southeast Asia · Available worldwide",connect_note:"📅 Full-time · Remote · No issues with time zones",form_title:"📨 Send a message",form_name:"Name *",form_email:"Email *",form_message:"Message *",form_submit:"✉️ Send message",footer:"© 2026 Olga Bochkareva — EDMS & BPM Analyst | 10+ years of experience"
-    }, vi: {
-        hero_name:"Olga Bochkareva",hero_title:"Chuyên gia phân tích EDMS & BPM",location:"🌏 Người du mục số (hiện đang ở Châu Á)",work_format:"💻 Toàn thời gian · Làm việc từ xa",experience:"📅 10+ năm kinh nghiệm",availability:"🌍 Sẵn sàng cho dự án mới",hero_desc:"Tôi giúp các công ty chuyển đổi từ quy trình giấy tờ hỗn loạn sang quy trình tự động rõ ràng. Chuyên sâu trong tối ưu hóa chu kỳ phê duyệt, tự động hóa GRC và EDMS tích hợp ERP.",btn_contact:"📩 Liên hệ",btn_projects:"💼 Xem kinh nghiệm",stat_years:"năm KN",stat_projects:"dự án",stat_users:"học viên",lang_info:"🇷🇺 Tiếng Nga — Bản ngữ",lang_info2:"🇬🇧 Tiếng Anh — Đang chuẩn bị chứng chỉ tiếng Anh",work_note:"📜 Bằng cấp có Apostille · Sẵn sàng di chuyển",about_title:"Về tôi",about_text1:"Tôi không phải là lập trình viên — tôi là cầu nối giữa sự hỗn loạn của doanh nghiệp và hệ thống vận hành. Tôi trò chuyện với người dùng, vẽ ra cách mọi thứ thực sự vận hành, tìm điểm nghẽn và thiết kế giải pháp loại bỏ thất lạc tài liệu, tăng tốc phê duyệt và giảm yêu cầu hỗ trợ.",about_text2:"Dược phẩm, phụ tùng ô tô, hàng không, luyện kim — tôi đã làm việc qua nhiều ngành. Tôi đã đào tạo hàng trăm người dùng và thấy tài liệu hướng dẫn tốt giảm đáng kể tải cho bộ phận hỗ trợ kỹ thuật.",quote:"Tôi không phải kiểu người chỉ ngồi chờ việc. Tôi đặt câu hỏi, tìm ra sự kém hiệu quả và sửa chúng. Tự động hóa tốt nhất là thứ bạn không nhận ra — nó cứ thế hoạt động.",location_note:"📍 Hiện đang đi du lịch khắp Châu Á và làm việc từ xa. Không vấn đề gì với múi giờ.",ielts_note:"🎯 Đang chuẩn bị chứng chỉ tiếng Anh",contact_note:"💬 Cần một người thực sự hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",work_title:"Kinh nghiệm làm việc",work1_title:"Chuyên gia tư vấn EDMS",work1_date:"Thg1 2026 — nay",work1_company:"Implecs · Dự án 'Hiệu thuốc Nga'",work1_desc:"Giảm thời gian phê duyệt khiếu nại từ 14 xuống 7 ngày. Cấu hình luồng phê duyệt cho tài liệu pháp lý và hợp đồng thuê.",result:"Kết quả:",work1_result:"✅ Phê duyệt nhanh hơn · Không mất tài liệu · Ít yêu cầu hỗ trợ hơn",work2_title:"Trưởng nhóm phát triển",work2_date:"Thg11 2022 — Thg1 2026",work2_company:"IT Navigator · Dự án 'Avtotrast'",work2_desc:"Đào tạo 150+ người dùng → giảm 70% yêu cầu hỗ trợ. Cấu hình quy trình phê duyệt phức tạp và tích hợp.",proud:"Kết quả:",work2_result:"✅ Phê duyệt minh bạch · Không nhập trùng dữ liệu · Giảm tải hỗ trợ",work3_title:"Chuyên viên CNTT chính",work3_date:"Thg10 2018 — Thg2 2022",work3_company:"Nhà máy hàng không dân dụng Ural",work3_desc:"Dẫn dắt triển khai hệ thống quản lý tài liệu cho 200+ người dùng. Ra mắt thí điểm trong 2 tháng. Phê duyệt nhanh hơn 40%.",key_results:"Kết quả:",work3_result:"✅ HR cabinet · Bản di động · Luồng tài liệu nhanh hơn",work4_title:"Chuyên viên CNTT chính",work4_date:"Thg6 2015 — Thg8 2018",work4_company:"Nhà máy kim loại màu",work4_desc:"Di chuyển không mất dữ liệu trong 4 tháng. 20+ biểu mẫu in, 15+ báo cáo SKD. Hỗ trợ 100+ người dùng.",what_i_did:"Kết quả:",work4_result:"✅ Di chuyển mượt mà · Báo cáo đáng tin cậy · Hỗ trợ ổn định",references_title:"Đề xuất",ref1:"Olga làm Trưởng nhóm. Cô ấy đã đào tạo 150+ người dùng, cấu hình quy trình phức tạp và giảm 70% yêu cầu hỗ trợ.",ref2:"Olga làm Chuyên gia tư vấn EDMS. Cô ấy đã tự động hóa khiếu nại pháp lý và hợp đồng thuê, giảm đáng kể thời gian phê duyệt.",ref3:"Olga dẫn dắt triển khai hệ thống quản lý tài liệu với vai trò Chuyên viên CNTT chính. Ra mắt thí điểm trong 2 tháng.",ref4:"Olga đã di chuyển thành công báo cáo tài chính mà không mất dữ liệu. Chuyên gia đáng tin cậy.",expertise_title:"Năng lực cốt lõi",exp1_title:"Phân tích quy trình",exp1_desc:"BPMN 2.0, Phân tích khoảng cách, Tối ưu hóa quy trình, MS Visio.",exp2_title:"Quản lý yêu cầu",exp2_desc:"BRD, SRS, User Stories, Use Cases. Viết đặc tả kỹ thuật mà nhà phát triển hiểu.",exp3_title:"Triển khai & Hỗ trợ",exp3_desc:"Cấu hình hệ thống, UAT, Đào tạo người dùng, Tài liệu kỹ thuật.",exp4_title:"Phân tích tích hợp",exp4_desc:"ERP, HRIS, EDI (Kontur Diadok). Kết nối các hệ thống không nhập trùng.",tools_title:"🛠️ Công nghệ & công cụ",edu_title:"Học vấn",edu1:"<strong>Chuyên gia Tin học</strong> (Bằng cấp có Apostille) – Đại học Sư phạm Bang Ural, 2010",edu2:"Bổ sung: Quản lý tài liệu, 1C:Archive, 1C:ERP",connect_title:"Kết nối",connect_text:"Cần một người hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",connect_location:"🌍 Hiện tại ở Đông Nam Á · Có mặt trên toàn thế giới",connect_note:"📅 Toàn thời gian · Làm việc từ xa · Không vấn đề với múi giờ",form_title:"📨 Gửi tin nhắn",form_name:"Tên *",form_email:"Email *",form_message:"Tin nhắn *",form_submit:"✉️ Gửi tin nhắn",footer:"© 2026 Olga Bochkareva — Chuyên gia phân tích EDMS & BPM | 10+ năm kinh nghiệm"
-    }};
+    window.translations = {
+        en: {
+            hero_name: "Olga Bochkareva", hero_title: "EDMS & BPM Analyst", location: "🌏 Digital nomad (currently Asia)",
+            work_format: "💻 Full-time · Remote", experience: "📅 10+ years experience", availability: "🌍 Open to relocation · Worldwide",
+            ielts_badge: "🎯 IELTS in progress (2026)",
+            hero_desc: "I help companies transform chaotic paper processes into clear, automated workflows. Specializing in approval cycle optimization, GRC automation, and ERP‑integrated EDMS.",
+            btn_contact: "📩 Contact me", btn_projects: "💼 View experience", btn_cv: "📄 Download CV (PDF)",
+            stat_years: "years exp", stat_projects: "projects", stat_users: "users trained",
+            lang_info: "🇷🇺 Russian — Native", lang_info2: "🇬🇧 English — IELTS in progress",
+            work_note: "📜 Diploma with Apostille · Open to relocation · Work authorization: Russia, Vietnam, remote globally",
+            about_title: "About me",
+            about_text1: "I'm not a programmer — I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.",
+            about_text2: "Pharmaceuticals, auto parts, aviation, metallurgy — I've worked across industries. I've trained hundreds of users and seen how proper documentation dramatically reduces the load on technical support.",
+            quote: "I'm not one of those people who just waits for tasks. I ask questions, find inefficiencies, and fix them. The best automation is the one you don't notice — it just works.",
+            location_note: "📍 Currently traveling across Asia, working remotely. No issues with time zones.",
+            contact_note: "💬 Need someone who truly understands business processes and can talk to both users and developers? Let's connect.",
+            work_title: "Work experience",
+            work1_title: "EDMS Consultant", work1_date: "Jan 2026 — present", work1_company: "Implecs · Russian Pharmacies",
+            work1_desc: "Reduced claim approval time from 14 to 7 days. Configured approval routes for legal documents and lease agreements.",
+            result: "Results:", work1_result: "✅ Faster approvals · No lost documents · Fewer support requests",
+            work2_title: "Team Lead · Dev Team", work2_date: "Nov 2022 — Jan 2026", work2_company: "IT Navigator · Avtotrast",
+            work2_desc: "Trained 150+ users → 70% fewer support tickets. Configured complex approval workflows and integrations.",
+            proud: "Results:", work2_result: "✅ Transparent approvals · No double data entry · Reduced support load",
+            work3_title: "Lead IT Specialist", work3_date: "Oct 2018 — Feb 2022", work3_company: "Ural Civil Aviation Plant",
+            work3_desc: "Led DMS implementation for 200+ users. Pilot launched in 2 months. 40% faster approvals.",
+            key_results: "Results:", work3_result: "✅ HR cabinet · Mobile version · Faster document flow",
+            work4_title: "Lead IT Specialist", work4_date: "Jun 2015 — Aug 2018", work4_company: "Non-Ferrous Metals Plant",
+            work4_desc: "Zero-data-loss migration in 4 months. 20+ printed forms, 15+ SKD reports. Support for 100+ users.",
+            what_i_did: "Results:", work4_result: "✅ Smooth migration · Reliable reporting · Stable support",
+            references_title: "References",
+            ref1: "Olga worked as Team Lead. She trained 150+ users, configured complex workflows, and reduced support tickets by 70%. Highly recommended.",
+            ref2: "Olga works as EDMS Consultant. She automated legal claims and lease agreements, reducing approval times significantly. A responsible professional working fully remotely.",
+            ref3: "Olga led DMS implementation as Lead IT Specialist. Pilot launched in 2 months. Great project management skills.",
+            ref4: "Olga successfully migrated financial reporting without data loss. Reliable and detail-oriented professional.",
+            expertise_title: "Core expertise",
+            exp1_title: "Process Analysis", exp1_desc: "BPMN 2.0, Gap Analysis, Workflow Optimization, Process Mapping (MS Visio). I identify bottlenecks and redesign processes for maximum efficiency.",
+            exp2_title: "Requirements Management", exp2_desc: "BRD, SRS, User Stories, Use Cases. I write technical specifications that developers actually understand.",
+            exp3_title: "Implementation & Support", exp3_desc: "System Configuration, UAT, End-User Training, Technical Documentation. 1000+ users trained successfully.",
+            exp4_title: "Integration Analysis", exp4_desc: "ERP, HRIS, EDI (Kontur Diadok). I make different systems communicate without double data entry.",
+            tools_title: "🛠️ Tools & technologies", edu_title: "Education",
+            edu1: "<strong>Specialist in Informatics</strong> (Diploma with Apostille) – Ural State Pedagogical University, 2010",
+            edu2: "Additional: Document Management, 1C:Archive, 1C:ERP", connect_title: "Let's connect",
+            connect_text: "Need someone who understands business processes and can talk to both users and developers? Let's connect.",
+            connect_location: "🌍 Currently in Southeast Asia · Available worldwide",
+            connect_note: "📅 Full-time · Remote · Work authorization: Russia, Vietnam, global remote",
+            form_title: "📨 Send a message", form_name: "Name *", form_email: "Email *", form_message: "Message *", form_submit: "✉️ Send message",
+            footer: "© 2026 Olga Bochkareva — EDMS & BPM Analyst | 10+ years of experience",
+            dashboard_title: "📊 EDMS / BPM optimization dashboard",
+            dashboard_sub: "Olga Bochkareva — results",
+            kpi_doc_types: "document types processed",
+            kpi_doc_types_trend: "61 have global equivalents",
+            kpi_cycle_time: "cycle time reduction",
+            kpi_cycle_time_trend: "up to 60% in inventory final resolution",
+            kpi_workflows: "workflows merged / redesigned",
+            kpi_workflows_trend: "3→1, sequential→parallel",
+            kpi_time_saved: "saved for accounting (ECB)",
+            kpi_time_saved_trend: "digital cash register batch signing",
+            kpi_pr_time: "purchase requisition (30+ approvers)",
+            kpi_pr_time_trend: "parallel approval",
+            documents_by_category: "📁 Documents by category (67 total)",
+            category_header: "Category",
+            count_header: "Count",
+            percent_header: "%",
+            cat_inventory: "Inventory & stocktake",
+            cat_contracts: "Contracts & amendments",
+            cat_regulatory: "Regulatory / methodological",
+            cat_purchasing: "Purchasing & memos",
+            cat_grc: "GRC / internal control",
+            cat_investment: "Investment, M&A, project",
+            cat_accounting: "Accounting, cash, EDI",
+            cat_hr: "HR & personnel",
+            work_types_title: "⚙️ Work types (most frequent)",
+            work_type_header: "Work type",
+            docs_affected_header: "Documents affected",
+            work_rbac: "Role‑based access control (RBAC)",
+            work_grc: "GRC automation (scheduled/event tasks)",
+            work_parallel: "Parallel approval setup",
+            work_deadline: "Deadline enforcement & auto‑escalation",
+            work_batch: "Batch creation / batch signing",
+            efficiency_title: "🏆 Top 5 cases by efficiency gain",
+            process_name_header: "Document / process",
+            before_header: "Before",
+            after_header: "After",
+            improvement_header: "Improvement",
+            case_inventory: "Inventory final resolution order",
+            case_purchase: "Purchase requisition (30+ approvers)",
+            case_theft: "Shortage liability (theft workflow)",
+            case_clearance: "Employee clearance checklist",
+            case_reconciliation: "Reconciliation statement",
+            global_platforms_title: "🌍 Global platforms (functional equivalents)",
+            local_specific_title: "📌 Local‑specific (only RF)",
+            local_specific_text: "6 document types (inventory liability distribution, pharmacy assortment specification, cash discipline reports). Explained as 'local statutory compliance forms'.",
+            efficiency_group_title: "📈 Efficiency by process group",
+            process_group_header: "Process group",
+            process_inventory: "Inventory workflows",
+            process_procurement: "Procurement (PR + sole‑source)",
+            process_grc: "GRC tasks (scheduled)",
+            process_contract: "Contract batch creation",
+            business_value_title: "✅ Business value summary",
+            value_1: "✔ Approval time reduced by 30–60% for 10+ core workflows",
+            value_2: "✔ GRC automation eliminated manual tracking (renewals, indexation, discounts)",
+            value_3: "✔ Batch signing: 5+ hours/month saved for CFO / accounting",
+            value_4: "✔ ISO 9001‑compliant acknowledgment (mandatory file attachments)",
+            value_5: "✔ 61 document types now compatible with global EDMS/BPM standards",
+            value_6: "✔ Zero 'zombie' tasks – every deadline is enforced and escalated",
+            dashboard_note: "Based on real projects · 1С:EDMS · Workflow automation · GRC · Batch signing · RBAC"
+        },
+        vi: {
+            hero_name: "Olga Bochkareva", hero_title: "Chuyên gia phân tích EDMS & BPM", location: "🌏 Người du mục số (hiện đang ở Châu Á)",
+            work_format: "💻 Toàn thời gian · Làm việc từ xa", experience: "📅 10+ năm kinh nghiệm", availability: "🌍 Sẵn sàng di chuyển · Toàn cầu",
+            ielts_badge: "🎯 Đang chuẩn bị IELTS (2026)",
+            hero_desc: "Tôi giúp các công ty chuyển đổi từ quy trình giấy tờ hỗn loạn sang quy trình tự động rõ ràng. Chuyên sâu trong tối ưu hóa chu kỳ phê duyệt, tự động hóa GRC và EDMS tích hợp ERP.",
+            btn_contact: "📩 Liên hệ", btn_projects: "💼 Xem kinh nghiệm", btn_cv: "📄 Tải CV (PDF)",
+            stat_years: "năm KN", stat_projects: "dự án", stat_users: "học viên",
+            lang_info: "🇷🇺 Tiếng Nga — Bản ngữ", lang_info2: "🇬🇧 Tiếng Anh — Đang học IELTS",
+            work_note: "📜 Bằng cấp có Apostille · Sẵn sàng di chuyển · Giấy phép làm việc: Nga, Việt Nam, toàn cầu từ xa",
+            about_title: "Về tôi",
+            about_text1: "Tôi không phải là lập trình viên — tôi là cầu nối giữa sự hỗn loạn của doanh nghiệp và hệ thống vận hành. Tôi trò chuyện với người dùng, vẽ ra cách mọi thực sự vận hành, tìm điểm nghẽn và thiết kế giải pháp loại bỏ thất lạc tài liệu, tăng tốc phê duyệt và giảm yêu cầu hỗ trợ.",
+            about_text2: "Dược phẩm, phụ tùng ô tô, hàng không, luyện kim — tôi đã làm việc qua nhiều ngành. Tôi đã đào tạo hàng trăm người dùng và thấy tài liệu hướng dẫn tốt giảm đáng kể tải cho bộ phận hỗ trợ kỹ thuật.",
+            quote: "Tôi không phải kiểu người chỉ ngồi chờ việc. Tôi đặt câu hỏi, tìm ra sự kém hiệu quả và sửa chúng. Tự động hóa tốt nhất là thứ bạn không nhận ra — nó cứ thế hoạt động.",
+            location_note: "📍 Hiện đang đi du lịch khắp Châu Á và làm việc từ xa. Không vấn đề gì với múi giờ.",
+            contact_note: "💬 Cần một người thực sự hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
+            work_title: "Kinh nghiệm làm việc",
+            work1_title: "Chuyên gia tư vấn EDMS", work1_date: "Thg1 2026 — nay", work1_company: "Implecs · Dự án 'Hiệu thuốc Nga'",
+            work1_desc: "Giảm thời gian phê duyệt khiếu nại từ 14 xuống 7 ngày. Cấu hình luồng phê duyệt cho tài liệu pháp lý và hợp đồng thuê.",
+            result: "Kết quả:", work1_result: "✅ Phê duyệt nhanh hơn · Không mất tài liệu · Ít yêu cầu hỗ trợ hơn",
+            work2_title: "Trưởng nhóm phát triển", work2_date: "Thg11 2022 — Thg1 2026", work2_company: "IT Navigator · Dự án 'Avtotrast'",
+            work2_desc: "Đào tạo 150+ người dùng → giảm 70% yêu cầu hỗ trợ. Cấu hình quy trình phê duyệt phức tạp và tích hợp.",
+            proud: "Kết quả:", work2_result: "✅ Phê duyệt minh bạch · Không nhập trùng dữ liệu · Giảm tải hỗ trợ",
+            work3_title: "Chuyên viên CNTT chính", work3_date: "Thg10 2018 — Thg2 2022", work3_company: "Nhà máy hàng không dân dụng Ural",
+            work3_desc: "Dẫn dắt triển khai hệ thống quản lý tài liệu cho 200+ người dùng. Ra mắt thí điểm trong 2 tháng. Phê duyệt nhanh hơn 40%.",
+            key_results: "Kết quả:", work3_result: "✅ HR cabinet · Bản di động · Luồng tài liệu nhanh hơn",
+            work4_title: "Chuyên viên CNTT chính", work4_date: "Thg6 2015 — Thg8 2018", work4_company: "Nhà máy kim loại màu",
+            work4_desc: "Di chuyển không mất dữ liệu trong 4 tháng. 20+ biểu mẫu in, 15+ báo cáo SKD. Hỗ trợ 100+ người dùng.",
+            what_i_did: "Kết quả:", work4_result: "✅ Di chuyển mượt mà · Báo cáo đáng tin cậy · Hỗ trợ ổn định",
+            references_title: "Đề xuất",
+            ref1: "Olga làm Trưởng nhóm. Cô ấy đã đào tạo 150+ người dùng, cấu hình quy trình phức tạp và giảm 70% yêu cầu hỗ trợ.",
+            ref2: "Olga làm Chuyên gia tư vấn EDMS. Cô ấy đã tự động hóa khiếu nại pháp lý và hợp đồng thuê, giảm đáng kể thời gian phê duyệt.",
+            ref3: "Olga dẫn dắt triển khai hệ thống quản lý tài liệu với vai trò Chuyên viên CNTT chính. Ra mắt thí điểm trong 2 tháng.",
+            ref4: "Olga đã di chuyển thành công báo cáo tài chính mà không mất dữ liệu. Chuyên gia đáng tin cậy.",
+            expertise_title: "Năng lực cốt lõi",
+            exp1_title: "Phân tích quy trình", exp1_desc: "BPMN 2.0, Phân tích khoảng cách, Tối ưu hóa quy trình, MS Visio.",
+            exp2_title: "Quản lý yêu cầu", exp2_desc: "BRD, SRS, User Stories, Use Cases. Viết đặc tả kỹ thuật mà nhà phát triển hiểu.",
+            exp3_title: "Triển khai & Hỗ trợ", exp3_desc: "Cấu hình hệ thống, UAT, Đào tạo người dùng, Tài liệu kỹ thuật.",
+            exp4_title: "Phân tích tích hợp", exp4_desc: "ERP, HRIS, EDI (Kontur Diadok). Kết nối các hệ thống không nhập trùng.",
+            tools_title: "🛠️ Công nghệ & công cụ", edu_title: "Học vấn",
+            edu1: "<strong>Chuyên gia Tin học</strong> (Bằng cấp có Apostille) – Đại học Sư phạm Bang Ural, 2010",
+            edu2: "Bổ sung: Quản lý tài liệu, 1C:Archive, 1C:ERP", connect_title: "Kết nối",
+            connect_text: "Cần một người hiểu quy trình kinh doanh và có thể nói chuyện với cả người dùng lẫn nhà phát triển? Hãy kết nối.",
+            connect_location: "🌍 Hiện tại ở Đông Nam Á · Có mặt trên toàn thế giới",
+            connect_note: "📅 Toàn thời gian · Làm việc từ xa · Giấy phép làm việc: Nga, Việt Nam, toàn cầu từ xa",
+            form_title: "📨 Gửi tin nhắn", form_name: "Tên *", form_email: "Email *", form_message: "Tin nhắn *", form_submit: "✉️ Gửi tin nhắn",
+            footer: "© 2026 Olga Bochkareva — Chuyên gia phân tích EDMS & BPM | 10+ năm kinh nghiệm",
+            dashboard_title: "📊 Bảng điều khiển tối ưu EDMS / BPM",
+            dashboard_sub: "Olga Bochkareva — kết quả đạt được",
+            kpi_doc_types: "loại tài liệu đã xử lý",
+            kpi_doc_types_trend: "61 loại có thể dùng trên toàn cầu",
+            kpi_cycle_time: "giảm thời gian xử lý",
+            kpi_cycle_time_trend: "giảm đến 60% cho hàng tồn kho",
+            kpi_workflows: "quy trình được hợp nhất/thiết kế lại",
+            kpi_workflows_trend: "3→1, tuần tự→song song",
+            kpi_time_saved: "giờ/tháng tiết kiệm cho kế toán",
+            kpi_time_saved_trend: "ký số hàng loạt",
+            kpi_pr_time: "ngày xử lý đơn mua hàng",
+            kpi_pr_time_trend: "phê duyệt song song",
+            documents_by_category: "📁 Tài liệu theo danh mục (67 loại)",
+            category_header: "Danh mục",
+            count_header: "Số lượng",
+            percent_header: "%",
+            cat_inventory: "Hàng tồn kho & kiểm kê",
+            cat_contracts: "Hợp đồng & sửa đổi",
+            cat_regulatory: "Quy định / phương pháp luận",
+            cat_purchasing: "Mua hàng & công văn",
+            cat_grc: "GRC / kiểm soát nội bộ",
+            cat_investment: "Đầu tư, M&A, dự án",
+            cat_accounting: "Kế toán, tiền mặt, EDI",
+            cat_hr: "Nhân sự",
+            work_types_title: "⚙️ Loại công việc (thường xuyên nhất)",
+            work_type_header: "Loại công việc",
+            docs_affected_header: "Tài liệu liên quan",
+            work_rbac: "Kiểm soát truy cập dựa trên vai trò",
+            work_grc: "Tự động hóa GRC",
+            work_parallel: "Thiết lập phê duyệt song song",
+            work_deadline: "Thực thi thời hạn & tự động leo thang",
+            work_batch: "Tạo hàng loạt / ký số hàng loạt",
+            efficiency_title: "🏆 5 trường hợp hiệu suất cao nhất",
+            process_name_header: "Quy trình / tài liệu",
+            before_header: "Trước",
+            after_header: "Sau",
+            improvement_header: "Cải thiện",
+            case_inventory: "Lệnh xử lý tồn kho cuối cùng",
+            case_purchase: "Đơn mua hàng (30+ người phê duyệt)",
+            case_theft: "Quy trình thiếu hụt (trộm cắp)",
+            case_clearance: "Danh sách kiểm tra nghỉ việc",
+            case_reconciliation: "Biên bản đối chiếu",
+            global_platforms_title: "🌍 Nền tảng toàn cầu (tương đương chức năng)",
+            local_specific_title: "📌 Chỉ có tại Nga",
+            local_specific_text: "6 loại tài liệu (phân bổ trách nhiệm hàng tồn kho, đặc tả danh mục hiệu thuốc, báo cáo kỷ luật tiền mặt). Giải thích là 'các biểu mẫu tuân thủ luật định địa phương'.",
+            efficiency_group_title: "📈 Hiệu suất theo nhóm quy trình",
+            process_group_header: "Nhóm quy trình",
+            process_inventory: "Quy trình hàng tồn kho",
+            process_procurement: "Mua sắm",
+            process_grc: "Nhiệm vụ GRC (đã lên lịch)",
+            process_contract: "Tạo hợp đồng hàng loạt",
+            business_value_title: "✅ Giá trị kinh doanh",
+            value_1: "✔ Giảm thời gian phê duyệt 30–60% cho 10+ quy trình cốt lõi",
+            value_2: "✔ Tự động hóa GRC loại bỏ theo dõi thủ công",
+            value_3: "✔ Ký số hàng loạt: tiết kiệm 5+ giờ/tháng cho kế toán",
+            value_4: "✔ Tuân thủ ISO 9001",
+            value_5: "✔ 61 loại tài liệu tương thích với tiêu chuẩn toàn cầu",
+            value_6: "✔ Không có nhiệm vụ 'zombie' – mọi thời hạn đều được thực thi",
+            dashboard_note: "Dựa trên dự án thực tế · 1С:EDMS · Tự động hóa quy trình · GRC · Ký số hàng loạt · RBAC"
+        }
+    };
 
     let currentLang = 'en';
+
     function switchLanguage(lang) {
+        if (!window.translations[lang]) return;
         currentLang = lang;
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
-            if (translations[lang] && translations[lang][key] !== undefined) {
-                if (key === 'edu1') el.innerHTML = translations[lang][key];
-                else el.textContent = translations[lang][key];
+            const translation = window.translations[lang]?.[key];
+            if (translation !== undefined) {
+                if (key === 'edu1') el.innerHTML = translation;
+                else el.textContent = translation;
             }
         });
         localStorage.setItem('preferred_language', lang);
     }
-    window.shareOnLinkedIn = ()=>window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,'_blank');
-    window.shareOnTelegram = ()=>window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=Olga%20Bochkareva%20-%20EDMS%20%26%20BPM%20Analyst`,'_blank');
+
+    function switchPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        const targetPage = document.getElementById(`page-${pageId}`);
+        if (targetPage) targetPage.classList.add('active-page');
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            const isActive = tab.getAttribute('data-page') === pageId;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive);
+        });
+        localStorage.setItem('current_page', pageId);
+        window.location.hash = pageId;
+        animateCardsOnPage();
+    }
+
+    function animateCardsOnPage() {
+        const cards = document.querySelectorAll('.page.active-page .card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(card => observer.observe(card));
+    }
+
+    function downloadCV() {
+        alert(currentLang === 'vi' 
+            ? '📄 Chức năng tải CV đang được cập nhật. Vui lòng liên hệ qua email để nhận CV chi tiết.'
+            : '📄 CV download feature is being updated. Please contact me via email to receive the detailed CV.');
+    }
+
+    window.shareOnLinkedIn = () => {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+    };
+    window.shareOnTelegram = () => {
+        window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=Olga%20Bochkareva%20-%20EDMS%20%26%20BPM%20Analyst`, '_blank');
+    };
+
     const formEl = document.getElementById('contact-form');
-    if(formEl) formEl.addEventListener('submit',(e)=>{ e.preventDefault(); const statusDiv = document.getElementById('form-status'); statusDiv.className='form-status success'; statusDiv.innerHTML=currentLang==='vi'?'✅ Cảm ơn! Tin nhắn của bạn đã được gửi. Tôi sẽ trả lời trong vòng 24 giờ.':'✅ Thank you! Your message has been sent. I will reply within 24 hours.'; formEl.reset(); setTimeout(()=>{statusDiv.style.display='none'; statusDiv.className='form-status';},5000); });
-    function switchPage(pageId){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active-page')); document.getElementById(`page-${pageId}`).classList.add('active-page'); document.querySelectorAll('.nav-tab').forEach(t=>t.classList.toggle('active',t.getAttribute('data-page')===pageId)); localStorage.setItem('current_page',pageId); window.location.hash=pageId; }
-    document.querySelectorAll('.nav-tab').forEach(tab=>tab.addEventListener('click',()=>switchPage(tab.getAttribute('data-page'))));
-    document.querySelectorAll('[data-page-link]').forEach(link=>link.addEventListener('click',(e)=>{e.preventDefault(); switchPage(link.getAttribute('data-page-link'));}));
-    document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>switchLanguage(btn.getAttribute('data-lang'))));
-    function handleHash(){ const hash=window.location.hash.substring(1); if(['about','work','dashboard','references','expertise','connect'].includes(hash)) switchPage(hash); else switchPage('about'); }
-    window.addEventListener('hashchange',handleHash);
-    const savedLang=localStorage.getItem('preferred_language'); if(savedLang&&translations[savedLang]) switchLanguage(savedLang); else{ document.querySelector('.lang-btn[data-lang="en"]').classList.add('active'); switchLanguage('en');}
-    handleHash();
+    if (formEl) {
+        formEl.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusDiv = document.getElementById('form-status');
+            const formData = new FormData(formEl);
+            statusDiv.className = 'form-status';
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = currentLang === 'vi' ? '⏳ Đang gửi...' : '⏳ Sending...';
+            try {
+                const response = await fetch(formEl.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    statusDiv.className = 'form-status success';
+                    statusDiv.innerHTML = currentLang === 'vi' 
+                        ? '✅ Cảm ơn! Tin nhắn của bạn đã được gửi. Tôi sẽ trả lời trong vòng 24 giờ.'
+                        : '✅ Thank you! Your message has been sent. I will reply within 24 hours.';
+                    formEl.reset();
+                    setTimeout(() => {
+                        statusDiv.style.display = 'none';
+                        statusDiv.className = 'form-status';
+                    }, 5000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                statusDiv.className = 'form-status error';
+                statusDiv.innerHTML = currentLang === 'vi'
+                    ? '❌ Có lỗi xảy ra. Vui lòng gửi email trực tiếp cho tôi.'
+                    : '❌ Something went wrong. Please email me directly.';
+            }
+        });
+    }
+
+    function init() {
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => switchPage(tab.getAttribute('data-page')));
+        });
+        document.querySelectorAll('[data-page-link]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchPage(link.getAttribute('data-page-link'));
+            });
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchLanguage(btn.getAttribute('data-lang')));
+        });
+        document.querySelectorAll('#download-cv, #download-cv-connect').forEach(btn => {
+            if (btn) btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                downloadCV();
+            });
+        });
+        
+        function handleHash() {
+            const hash = window.location.hash.substring(1);
+            const validPages = ['about', 'work', 'dashboard', 'references', 'expertise', 'connect'];
+            if (validPages.includes(hash)) switchPage(hash);
+            else switchPage('about');
+        }
+        window.addEventListener('hashchange', handleHash);
+        const savedLang = localStorage.getItem('preferred_language');
+        if (savedLang && window.translations[savedLang]) {
+            switchLanguage(savedLang);
+        } else {
+            document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
+            switchLanguage('en');
+        }
+        handleHash();
+        animateCardsOnPage();
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 </script>
 </body>
 </html>
