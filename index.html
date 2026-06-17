@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
     <title>Olga Bochkareva | EDMS & BPM Analyst</title>
 
-    <meta name="description" content="Olga Bochkareva - EDMS & BPM Analyst. 10+ years of experience. Specializing in approval workflows, GRC automation, process optimization." />
+    <meta name="description" content="Olga Bochkareva - EDMS & BPM Analyst. 10+ years of experience. Specializing in approval workflows, GRC automation, process optimization. Remote from Asia." />
     <meta name="keywords" content="EDMS, BPM, Business Analyst, process automation, workflow optimization, GRC, ECM, remote, Asia" />
     <meta name="author" content="Olga Bochkareva" />
     <meta name="robots" content="index, follow" />
@@ -19,6 +19,7 @@
     <meta property="og:description" content="EDMS & BPM Analyst. Process optimization, GRC automation, approval workflows. 10+ years experience. Remote from Asia." />
     <meta property="og:type" content="profile" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://processnomad.com/" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Olga Bochkareva | EDMS & BPM Analyst" />
@@ -45,6 +46,7 @@
     </script>
 
     <style>
+        /* ===== ВЕСЬ CSS ОСТАЁТСЯ БЕЗ ИЗМЕНЕНИЙ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -989,12 +991,12 @@
             z-index: 1000;
         }
 
-        /* PHOTO PLACEHOLDER */
         .photo-placeholder {
             background: var(--bg-warm);
             border: 2px dashed var(--border-light);
             border-radius: 16px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
@@ -1002,12 +1004,12 @@
             text-align: center;
             padding: 20px;
             min-height: 120px;
+            gap: 6px;
         }
 
         .photo-placeholder .icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             display: block;
-            margin-bottom: 8px;
         }
 
         @media (max-width: 800px) {
@@ -1138,8 +1140,9 @@
                 </div>
                 <div class="hero-sidebar">
                     <div class="profile-photo" id="hero-photo">
-                        <!-- ЗАГРУЗИТЕ ФОТО СЮДА -->
-                        <span style="font-size: 0.7rem; color: #aaa; text-align: center; padding: 10px;">📷<br>your photo</span>
+                        <span class="photo-placeholder" style="border: none; background: transparent; min-height: auto; padding: 0; font-size: 0.7rem; color: #aaa; text-align: center;">
+                            <span style="font-size: 2rem;">📷</span><br>your photo
+                        </span>
                     </div>
                     <div class="contact-row">📧 <a href="mailto:olga.bpm.edms@gmail.com">olga.bpm.edms@gmail.com</a></div>
                     <div class="contact-row"><span data-key="lang_info">🇷🇺 Russian — Native</span></div>
@@ -1152,12 +1155,11 @@
             </div>
         </div>
 
-        <!-- ABOUT SECTION (переработан, без дублирования) -->
+        <!-- ABOUT SECTION -->
         <section>
             <div class="container">
                 <div class="section-title" data-key="about_title">About me</div>
 
-                <!-- Философия — одна карточка, коротко -->
                 <div class="card" style="margin-bottom: 28px; background: var(--bg-warm); border-left: 4px solid var(--primary-warm);">
                     <div class="card-content" style="font-size: 1.05rem; line-height: 1.7;">
                         <p style="font-weight: 500; color: var(--primary-dark);" data-key="philosophy_1">"I don't build walls. I build systems that work — from anywhere in the world."</p>
@@ -1166,7 +1168,6 @@
                     </div>
                 </div>
 
-                <!-- Профессиональная часть — сжато -->
                 <div class="card exp" style="margin-bottom: 0;">
                     <div class="card-content">
                         <p data-key="about_text1">I'm the bridge between business chaos and a working system. I talk to users, map out how things really work, find bottlenecks, and design solutions that eliminate document loss, speed up approvals, and reduce support requests.</p>
@@ -1176,7 +1177,6 @@
 
                 <div class="quote" data-key="quote">The best automation is the one you don't notice — it just works. I ask questions, find inefficiencies, and fix them.</div>
 
-                <!-- CTA -->
                 <div style="margin-top: 32px; text-align: center;">
                     <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 16px;" data-key="contact_note">💬 Ready to bring order to your chaos? Let's talk.</p>
                     <a href="javascript:void(0)" class="btn btn-warm" data-page-link="connect" data-key="btn_contact">📩 Contact me</a>
@@ -1186,7 +1186,7 @@
         </section>
     </div>
 
-    <!-- PAGE: WORK (без изменений) -->
+    <!-- PAGE: WORK -->
     <div id="page-work" class="page" role="tabpanel" aria-labelledby="tab-work">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1201,7 +1201,7 @@
         </section>
     </div>
 
-    <!-- PAGE: DASHBOARD (без изменений) -->
+    <!-- PAGE: DASHBOARD -->
     <div id="page-dashboard" class="page" role="tabpanel" aria-labelledby="tab-dashboard">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1300,7 +1300,7 @@
         </section>
     </div>
 
-    <!-- PAGE: REFERENCES (без изменений) -->
+    <!-- PAGE: REFERENCES -->
     <div id="page-references" class="page" role="tabpanel" aria-labelledby="tab-references">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1315,7 +1315,7 @@
         </section>
     </div>
 
-    <!-- PAGE: EXPERTISE (без изменений) -->
+    <!-- PAGE: EXPERTISE -->
     <div id="page-expertise" class="page" role="tabpanel" aria-labelledby="tab-expertise">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1337,7 +1337,7 @@
         </section>
     </div>
 
-    <!-- PAGE: LIFE (НОВЫЙ РАЗДЕЛ) -->
+    <!-- PAGE: LIFE -->
     <div id="page-life" class="page" role="tabpanel" aria-labelledby="tab-life">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1346,9 +1346,9 @@
 
                 <div class="life-grid">
                     <div class="life-card">
-                        <div class="life-img photo-placeholder" style="min-height: 200px; display: flex; flex-direction: column; gap: 6px; border-radius: 24px 24px 0 0;">
-                            <span style="font-size: 2.5rem;">🏝️</span>
-                            <span style="font-size: 0.75rem;">📷 your photo here</span>
+                        <div class="life-img photo-placeholder" style="min-height: 200px; border-radius: 24px 24px 0 0;">
+                            <span class="icon">🏝️</span>
+                            <span>📷 your photo here</span>
                         </div>
                         <div class="life-body">
                             <h3 data-key="life_title_1">Morning routine in Bali</h3>
@@ -1357,9 +1357,9 @@
                     </div>
 
                     <div class="life-card">
-                        <div class="life-img photo-placeholder" style="min-height: 200px; display: flex; flex-direction: column; gap: 6px; border-radius: 24px 24px 0 0;">
-                            <span style="font-size: 2.5rem;">🌺</span>
-                            <span style="font-size: 0.75rem;">📷 your photo here</span>
+                        <div class="life-img photo-placeholder" style="min-height: 200px; border-radius: 24px 24px 0 0;">
+                            <span class="icon">🌺</span>
+                            <span>📷 your photo here</span>
                         </div>
                         <div class="life-body">
                             <h3 data-key="life_title_2">Work from anywhere</h3>
@@ -1368,9 +1368,9 @@
                     </div>
 
                     <div class="life-card">
-                        <div class="life-img photo-placeholder" style="min-height: 200px; display: flex; flex-direction: column; gap: 6px; border-radius: 24px 24px 0 0;">
-                            <span style="font-size: 2.5rem;">🌅</span>
-                            <span style="font-size: 0.75rem;">📷 your photo here</span>
+                        <div class="life-img photo-placeholder" style="min-height: 200px; border-radius: 24px 24px 0 0;">
+                            <span class="icon">🌅</span>
+                            <span>📷 your photo here</span>
                         </div>
                         <div class="life-body">
                             <h3 data-key="life_title_3">Sunset in Vietnam</h3>
@@ -1379,9 +1379,9 @@
                     </div>
 
                     <div class="life-card">
-                        <div class="life-img photo-placeholder" style="min-height: 200px; display: flex; flex-direction: column; gap: 6px; border-radius: 24px 24px 0 0;">
-                            <span style="font-size: 2.5rem;">🌏</span>
-                            <span style="font-size: 0.75rem;">📷 your photo here</span>
+                        <div class="life-img photo-placeholder" style="min-height: 200px; border-radius: 24px 24px 0 0;">
+                            <span class="icon">🌏</span>
+                            <span>📷 your photo here</span>
                         </div>
                         <div class="life-body">
                             <h3 data-key="life_title_4">Attached to nothing</h3>
@@ -1390,7 +1390,6 @@
                     </div>
                 </div>
 
-                <!-- CTA -->
                 <div style="text-align: center; margin-top: 40px;">
                     <p style="color: var(--text-muted); font-size: 0.9rem;" data-key="life_cta">More moments like this on Instagram →</p>
                     <a href="https://instagram.com/olga.bpm.edms" target="_blank" rel="noopener" class="btn btn-warm" style="margin-top: 12px;">📸 Follow me on Instagram</a>
@@ -1399,7 +1398,7 @@
         </section>
     </div>
 
-    <!-- PAGE: CONNECT (без изменений) -->
+    <!-- PAGE: CONNECT -->
     <div id="page-connect" class="page" role="tabpanel" aria-labelledby="tab-connect">
         <section style="padding-top: 48px;">
             <div class="container">
@@ -1442,7 +1441,7 @@
     </div>
 
     <script>
-        // ========== TRANSLATIONS ==========
+        // ========== TRANSLATIONS (ПОЛНЫЙ СПИСОК) ==========
         window.translations = {
             en: {
                 hero_name: "Olga Bochkareva",
@@ -1583,7 +1582,6 @@
                 value_5: "✔ 61 document types now compatible with global EDMS/BPM standards",
                 value_6: "✔ Zero 'zombie' tasks – every deadline is enforced and escalated",
                 dashboard_note: "Based on real projects · 1С:EDMS · Workflow automation · GRC · Batch signing · RBAC",
-                // LIFE
                 life_title: "🌴 Life & Vibes",
                 life_desc: "A glimpse into my world — where work meets freedom.",
                 life_title_1: "Morning routine in Bali",
@@ -1735,7 +1733,6 @@
                 value_5: "✔ 61 loại tài liệu tương thích với tiêu chuẩn toàn cầu",
                 value_6: "✔ Không có nhiệm vụ 'zombie' – mọi thời hạn đều được thực thi",
                 dashboard_note: "Dựa trên dự án thực tế · 1С:EDMS · Tự động hóa quy trình · GRC · Ký số hàng loạt · RBAC",
-                // LIFE VI
                 life_title: "🌴 Cuộc sống & Cảm hứng",
                 life_desc: "Một góc nhìn vào thế giới của tôi — nơi công việc gặp gỡ tự do.",
                 life_title_1: "Buổi sáng ở Bali",
